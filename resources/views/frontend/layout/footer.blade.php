@@ -4,12 +4,15 @@
         <div class="container">
             <div class="row">
                 <div class="f-items">
-                    <div class="col-md-6 equal-height item">
+                    {{-- <div class="col-md-6 equal-height item">
                         <div class="f-item">
                             <a class="navbar-brand" href="#">
                                 <img src="{{ asset('front/img/logo-footer.png')}}" class="logo" alt="Logo">
                             </a>
                         </div>
+                    </div> --}}
+                    <div class="col-md-4 logo">
+                        <a href="#"><img src="{{ asset('front/img/logo-footer.png')}}" alt="Logo" style="max-width: 70%;padding-bottom:30px"></a>
                     </div>
                     <div class="col-md-2 equal-height item">
                         <div class="f-item link">

@@ -4,9 +4,9 @@
 
     <!-- Start Banner
     ============================================= -->
-    <div class="banner-area content-double bg-theme-small normal-text">
-        <div class="side-bg">
-            <img src="{{ asset('front/img/construction-bg.png')}}" alt="Thumb" style="min-width: fit-content;">
+    <div class="banner-area content-double bg-theme-small normal-text default-padding-top">
+        <div class="side-bg ">
+            <img class="" src="{{ asset('front/img/image1.png')}}" alt="Thumb" style="min-width: fit-content;">
         </div>
         <div class="box-table">
             <div class="box-cell">
@@ -14,29 +14,14 @@
                     <div class="row">
                         <div class="col-sm-5 info" style="padding-bottom:30px">
                             <h2>Sebagai kontraktor handal kami hadir untuk mewujudkan hunian terbaik anda</h2>
-                            <!-- <div class="row">
-                                <div class="col-xs-3">
-                                    <button type="button" class="btn btn-theme">Sign up</button>
-                                </div>
-                                <div class="col-xs-8">
-                                    <button type="button" class="btn btn-dark border">Contact us</button>
-                                </div>
-                            </div> -->
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4 col-xs-3">
-                                    <button type="button" class="btn btn-theme">Sign up</button>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="form-group">
-                                    <button type="button" class="btn btn-dark border">Contact us</button>
-                                    </div>
-                                </div>
+                            <div class="btn-toolbar" >
+                                <button type="button" class="btn btn-theme" onclick="window.location='{{url('signup')}}'">Sign up</button>
+                                <button type="button" class="btn btn-dark border">Contact us</button>
                             </div>
-
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-5">
                             <div class="blogs">
                                 <h2 class="border-top">Larch for business</h2>
                                 <p>
@@ -74,27 +59,27 @@
             <div class="row" style="padding-top: 30px;">
                 <!-- Start Single Item -->
                 <div class="col-md-6 single-item">
-                    <div class="item">
+                    <div class="item text-center" style="padding: 45px 45px 0px 45px;">
                         <h4>For multiple small & medium projects</h4>
                         <p>
                             Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
-                        <i class="flaticon-analysis"></i>
+                        <img src="{{ asset('front/img/image2.png')}}" alt="Thumb" style="max-width: 300px;">
                     </div>
                 </div>
                 <!-- End Single Item -->
                 <!-- Start Single Item -->
                 <div class="col-md-6 single-item">
-                    <div class="item">
+                    <div class="item text-center" style="padding: 45px 45px 0px 45px;">
                         <h4>For large & complex site operations</h4>
                         <p>
                             Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
-                        <i class="flaticon-objective"></i>
+                        <img src="{{ asset('front/img/image2.png')}}" alt="Thumb" style="max-width: 300px;">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -109,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 thumb">
-                    <img src="assets/img/800x800.png" alt="Thumb">
+                    <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
                 </div>
                 <div class="col-md-7 info">
                     <h2>Kami selalu flexible dan tepat waktu dalam pembangunan</h2>
@@ -128,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <!-- Start Single Item -->
-                <div class="col-md-7">
+                <div class="col-md-6 default-padding-bottom">
                     <h4>Stay Compliant</h4>
                     <h3>Tetap dalam jalur dan selalu update dengan progress</h3 >
                     <ul>
@@ -148,23 +133,9 @@
                 </div>
                 <!-- End Single Item -->
                 <!-- Start Single Item -->
-                <div class="col-md-4 col-md-offset-1 single-item">
-                    <div class="item" style="background-color:#fdf4ef">
-                        <h4>For multiple small & medium projects</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Client Handovers</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Contractors’ Management</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Compliance Enforcement</div>
-                            </li>
-                        </ul>
+                <div class="col-md-5 col-md-offset-1 single-item">
+                    <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
+                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -180,22 +151,8 @@
             <div class="row">
                 <!-- Start Single Item -->
                 <div class="col-md-4 single-item">
-                    <div class="item" style="background-color:#fdf4ef">
-                        <h4>For multiple small & medium projects</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Client Handovers</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Contractors’ Management</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Compliance Enforcement</div>
-                            </li>
-                        </ul>
+                    <div class="item" style="background-color:#fdf4ef;padding: 45px 0px 0px 45px;">
+                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -230,7 +187,7 @@
         <div class="container">
             <div class="row">
                 <!-- Start Single Item -->
-                <div class="col-md-7">
+                <div class="col-md-7 default-padding-bottom">
                     <h4>Track Progress</h4>
                     <h3>Selalu awasi pembangunan dengan Tracking progress</h3 >
                     <ul>
@@ -251,22 +208,8 @@
                 <!-- End Single Item -->
                 <!-- Start Single Item -->
                 <div class="col-md-4 col-md-offset-1 single-item">
-                    <div class="item" style="background-color:#fdf4ef">
-                        <h4>For multiple small & medium projects</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Client Handovers</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Contractors’ Management</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">Compliance Enforcement</div>
-                            </li>
-                        </ul>
+                    <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
+                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->

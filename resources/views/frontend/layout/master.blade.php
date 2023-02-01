@@ -31,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 </head>
 
 <body>
@@ -61,9 +62,10 @@
     <script src="{{ asset('front/js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('front/js/count-to.js') }}"></script>
     <script src="{{ asset('front/js/bootsnav.js') }}"></script>
-    <script src="{{ asset('front/js/Chart.min.js') }}"></script>
-    <script src="{{ asset('front/js/custom-chart.js') }}"></script>
     <script src="{{ asset('front/js/main.js') }}"></script>
-
+    <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+    <script type="text/javascript"> 
+        $('.dropify').dropify();
+    </script>
 </body>
 </html>

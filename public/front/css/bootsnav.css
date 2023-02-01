@@ -921,11 +921,11 @@ nav.navbar.bootsnav {
   }
 
   nav.navbar.bootsnav .navbar-brand {
-    padding: 20px 50px 20px 15px;
+    padding: 20px 20px 20px 15px;
   }
 
   nav.navbar.bootsnav.sticked .navbar-brand {
-    padding: 15px 50px 20px 15px;
+    padding: 15px 20px 20px 15px;
   }
 
   nav.navbar.bootsnav ul.nav > li.active > a {

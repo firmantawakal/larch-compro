@@ -44,14 +44,10 @@
                     </div>
                     <div class="col-md-4 text-right">
                         <div class="collapse navbar-collapse" id="navbar-menu">
-                            <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
-                                <li>
-                                    <button type="button" class="btn btn-light border" style="margin-top: 20px;margin-right: 20px;">Contact us</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-theme" style="margin-top: 20px;" onclick="window.location='{{ url("signup") }}'">Sign up</button>
-                                </li>
-                            </ul>
+                            <div class="btn-toolbar navbar-right" style="margin-top: 20px;">
+                                <button type="button" class="btn btn-light border">Contact us</button>
+                                <button type="button" class="btn btn-theme" onclick="window.location='{{url('signup')}}'">Sign up</button>
+                            </div>
                         </div><!-- /.navbar-collapse -->
                     </div>
                 </div>

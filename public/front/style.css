@@ -1717,7 +1717,7 @@ body,
   -webkit-box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.09);
   -o-box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.09);
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.09);
-  padding: 45px;
+  padding: 45px 45px 45px 45px;
   position: relative;
   z-index: 1;
   background-color: #ffffff;

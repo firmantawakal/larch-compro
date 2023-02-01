@@ -123,7 +123,9 @@
                             <div class="col-12">
                                 <div class="form-group">
                                   <label for="telp">Upload File</label>
-                                  <input type="file" class="form-control" name="telp" id="telp" aria-describedby="helpId" placeholder="123-456">
+                                  <input name="file1" type="file" class="dropify" data-height="100" />
+                                  {{-- <input type="file" class="form-control" name="telp" id="telp" aria-describedby="helpId" placeholder="123-456"> --}}
+                                </div>
                                 </div>
                             </div>
 
