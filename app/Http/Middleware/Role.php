@@ -19,7 +19,7 @@ class Role
         $roles = array_slice(func_get_args(), 2);
 
         foreach ($roles as $role) {
-            $user = \Auth::user()->role;
+            $user = \Auth::user()->level;
             if( $user == $role){
                 return $next($request);
             }

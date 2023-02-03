@@ -29,14 +29,16 @@
                                         <span class="alert-error"></span>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
-                                    <label for="kota">Pilih Kota</label>
-                                    <select class="form-control" name="kota" id="kota">
-                                    <option>a</option>
-                                    <option>b</option>
-                                    <option>c</option>
-                                    </select>
+                                    <label> Provinsi </label>
+                                    <select class="form-control select2-data-array browser-default" id="select2-provinsi"></select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label> Kabupaten </label>
+                                    <select class="form-control select2-data-array browser-default" id="select2-kabupaten"></select>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -134,8 +136,8 @@
 
                             <div class="col-md-12">
                                 <div class="row">
-                                    <button type="submit" name="submit" id="submit">
-                                        Send Message <i class="fa fa-paper-plane"></i>
+                                    <button class="btn btn-theme" type="submit" name="submit" id="submit">
+                                        Sign Up</i>
                                     </button>
                                 </div>
                             </div>

@@ -316,10 +316,10 @@
                 <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                     <form action="#">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-6 col-xs-6">
                                 <button type="button" class="btn btn-theme">Sign up</button>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-6 col-xs-6">
                                 <div class="form-group">
                                 <button type="button" class="btn btn-light border">Contact us</button>
                                 </div>
