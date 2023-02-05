@@ -38,10 +38,27 @@ class VisitorController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        // Visitor::create($validated);
+        $insert = [
+            "nama" => $request->nama,
+            "alamat" => $request->alamat,
+            "kota" => $request->kota,
+            "no_telp" => $request->no_telp,
+            "jenis_pembangunan" => $request->jenis_pembangunan,
+            "issame_location" => $request->issame_location,
+            "alamat_lokasi" => $request->alamat_lokasi,
+            "kota_lokasi" => $request->kota_lokasi,
+            "luas_tanah1" => $request->luas_tanah1,
+            "luas_tanah2" => $request->luas_tanah2,
+            "file" => $request->input_file,
+        ];
 
-        
+        $query = Visitor::create($insert);
+
+        if ($query) {
+            return response()->json('success', 202);
+        } else {
+            return response()->json('error', 404);
+        }
     }
 
     /**

@@ -280,14 +280,16 @@
     function submitData(){
         let values = {
             'nama' : $('#nama').val(),
-            'alamat' : $('#alamat').val()+', '+$("#select2-kabupaten option:selected").text()+', '+$("#select2-provinsi option:selected").text(),
+            'alamat' : $('#alamat').val(),
+            'kota' : $("#select2-kabupaten option:selected").text()+', '+$("#select2-provinsi option:selected").text(),
             'no_telp' : $('#no_telp').val(),
             'jenis_pembangunan' : $('#jenis_pembangunan').val(),
             'issame_location' : $('input[name="issame_location"]:checked').val(),
-            'alamat_lokasi' : $('#alamat_lokasi').val()+', '+$("#select2-kabupaten2 option:selected").text()+', '+$("#select2-provinsi2 option:selected").text(),
+            'alamat_lokasi' : $('#alamat_lokasi').val(),
+            'kota_lokasi' : $("#select2-kabupaten2 option:selected").text()+', '+$("#select2-provinsi2 option:selected").text(),
             'luas_tanah1' : $('#luas_tanah1').val(),
             'luas_tanah2' : $('#luas_tanah2').val(),
-            'input-file' : $('#input-file').val(),
+            'input_file' : $('#input-file').val(),
         }
         console.log(values)
 
