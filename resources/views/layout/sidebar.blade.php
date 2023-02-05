@@ -15,7 +15,7 @@
       <li class="nav-item {{ active_class(['admin/home']) }}">
         <a href="{{ url('admin/home') }}" class="nav-link">
           <i class="link-icon" data-feather="box"></i>
-          <span class="link-title">Dashboard</span>
+          <span class="link-title">Home</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['admin/visitor']) }}">

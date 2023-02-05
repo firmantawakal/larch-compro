@@ -37,13 +37,12 @@ Route::prefix('admin')->group(function () {
         Route:: resource('user', '\App\Http\Controllers\UserController')->middleware('role:admin');
         Route:: get('user/unarchive/{id}', [UserController::class, 'unarchive'])->name('user.unarchive')->middleware('role:admin');
 
-        // Route::group(["middleware" => "level:admin,author"], function() {
-            Route::get('home', [HomeController::class, 'index'])->name('home');
-            Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
+        Route::get('home', [HomeController::class, 'edit'])->name('home');
+        Route::patch('home/update/{id}', [HomeController::class, 'update'])->name('home.update');
+        Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
-            Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
-            Route::get('visitor/detail/{id}', [VisitorController::class, 'detail'])->name('visitor.detail');
-        // });
+        Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
+        Route::get('visitor/detail/{id}', [VisitorController::class, 'detail'])->name('visitor.detail');
     });
 });
 

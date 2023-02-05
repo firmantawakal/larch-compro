@@ -33,7 +33,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Why Lanch?</a>
+                                    <a href="#">Why Larch?</a>
                                 </li>
                                 <li>
                                     <a href="#">Team</a>
