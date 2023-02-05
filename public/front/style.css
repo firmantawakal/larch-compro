@@ -203,9 +203,9 @@ b, strong {
   box-shadow: inherit;
 }
 
-input, select {
+input, select, [class^='select2'] {
   border: 1px solid #e7e7e7;
-  border-radius: inherit;
+  /* border-radius: inherit; */
   box-shadow: inherit;
   min-height: 50px;
 }
@@ -3973,6 +3973,11 @@ ul li .icon-list {
   padding: 0 20px;
 }
 
+.control-label:after { 
+  content:" *";
+  color:red;
+}
+
 
 /* ==============================================================
      # Contact
@@ -4040,6 +4045,16 @@ ul li .icon-list {
   border: 1px solid #e7e7e7;
   border-radius: inherit;
   box-shadow: inherit;
+}
+
+.contact-us-area .form-box [class^='select2'] {
+  border: 1px solid #e7e7e7;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-top: 10px;
 }
 
 .contact-us-area .form-box textarea {

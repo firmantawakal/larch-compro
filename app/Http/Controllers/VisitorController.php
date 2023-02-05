@@ -38,20 +38,10 @@ class VisitorController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name'        => 'string|max:100',
-            'email'       => 'required|unique:visitors|string|min:5',
-            'password'   => 'required|min:5',
-            'role'        => 'required',
-        ]);
+        dd($request);
+        // Visitor::create($validated);
 
-        if (isset($validated['password'])) {
-            $validated['password'] = bcrypt($validated['password']);
-        }
-        Visitor::create($validated);
-
-        return redirect()->route('visitor.index')
-                        ->with('success','Data visitor berhasil ditambah');
+        
     }
 
     /**
