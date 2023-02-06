@@ -55,6 +55,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image</label>
                                     <input type="file" class="form-control" name="section1_image" id="">
+                                    <input type="hidden" name="section1_image_old" value="{{$dt_home->section1_image}}">
                                 </div>
                             </div>
                         </div>
@@ -79,6 +80,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image 1</label>
                                     <input type="file" class="form-control" name="section2_image1" id="">
+                                    <input type="hidden" name="section2_image1_old" value="{{$dt_home->section2_image1}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -97,6 +99,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image 2</label>
                                     <input type="file" class="form-control" name="section2_image2" id="">
+                                    <input type="hidden" name="section2_image2_old" value="{{$dt_home->section2_image2}}">
                                 </div>
                             </div>
                         </div>
@@ -119,6 +122,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image</label>
                                     <input type="file" class="form-control" name="section3_image" id="">
+                                    <input type="hidden" name="section3_image_old" value="{{$dt_home->section3_image}}">
                                 </div>
                             </div>
                         </div>
@@ -140,6 +144,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image</label>
                                     <input type="file" class="form-control" name="section4_image" id="">
+                                    <input type="hidden" name="section4_image_old" value="{{$dt_home->section4_image}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -176,6 +181,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image</label>
                                     <input type="file" class="form-control" name="section5_image" id="">
+                                    <input type="hidden" name="section5_image_old" value="{{$dt_home->section5_image}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -212,6 +218,7 @@
                                 <div class="mb-3">
                                     <label class="col-form-label">Image</label>
                                     <input type="file" class="form-control" name="section6_image" id="">
+                                    <input type="hidden" name="section6_image_old" value="{{$dt_home->section6_image}}">
                                 </div>
                             </div>
                             <div class="col-md-6">

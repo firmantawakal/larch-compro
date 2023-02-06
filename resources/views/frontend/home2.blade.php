@@ -13,7 +13,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-5 info" style="padding-bottom:30px">
-                            <h2>{{$dt_home->section1_title}}</h2>
+                            <h2>Sebagai kontraktor handal kami hadir untuk mewujudkan hunian terbaik anda</h2>
                             <div class="btn-toolbar" >
                                 <button type="button" class="btn btn-theme" onclick="window.location='{{url('signup')}}'">Sign up</button>
                                 <button type="button" class="btn btn-dark border">Contact us</button>
@@ -23,16 +23,16 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="blogs">
-                                <h2 class="border-top">{{$dt_home->section1_subtitle1}}</h2>
+                                <h2 class="border-top">Larch for business</h2>
                                 <p>
-                                    {{$dt_home->section1_content1}}
+                                    Travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything
                                 </p>
                                 <a href="#" style="color: #F54703">Learn more <i class="fas fa-angle-right"></i></a>
                             </div>
                             <div class="blogs">
-                                <h2 class="border-top">{{$dt_home->section1_subtitle2}}</h2>
+                                <h2 class="border-top">Larch for personal</h2>
                                 <p>
-                                    {{$dt_home->section1_content2}}
+                                    Travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything
                                 </p>
                                 <a href="#" style="color: #F54703;">Learn more <i class="fas fa-angle-right"></i></a>
                             </div>
@@ -51,8 +51,8 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="site-heading">
-                        <h2>{{$dt_home->section2_title1}}</h2>
-                        <h4>{{$dt_home->section2_title2}}</h4>
+                        <h2>Solusi hunian untuk anda</h2>
+                        <h4>Kami memiliki layanan Arsitektur dan Kontraktor</h4>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                 <!-- Start Single Item -->
                 <div class="col-md-6 single-item">
                     <div class="item text-center" style="padding: 45px 45px 0px 45px;">
-                        <h4>{{$dt_home->section2_subtitle1}}</h4>
+                        <h4>For multiple small & medium projects</h4>
                         <p>
-                            {{$dt_home->section2_content1}}
+                            Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
@@ -73,9 +73,9 @@
                 <!-- Start Single Item -->
                 <div class="col-md-6 single-item">
                     <div class="item text-center" style="padding: 45px 45px 0px 45px;">
-                        <h4>{{$dt_home->section2_subtitle2}}</h4>
+                        <h4>For large & complex site operations</h4>
                         <p>
-                            {{$dt_home->section2_content2}}
+                            Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
@@ -97,9 +97,9 @@
                     <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
                 </div>
                 <div class="col-md-7 info">
-                    <h2>{{$dt_home->section3_title}}</h2>
+                    <h2>Kami selalu flexible dan tepat waktu dalam pembangunan</h2>
                     <p>
-                        {{$dt_home->section3_content}}
+                        Pntroduced day her apartments. Fully as taste he mr do smile abode every. Luckily offered article led lasting country minutes nor old. Happen people things oh is oppose up parish effect. Law handsome old outweigh humoured far appetite.
                     </p>
                 </div>
             </div>
@@ -114,20 +114,20 @@
             <div class="row">
                 <!-- Start Single Item -->
                 <div class="col-md-6 default-padding-bottom">
-                    <h4>{{$dt_home->section4_title1}}</h4>
-                    <h3>{{$dt_home->section4_title2}}</h3 >
+                    <h4>Stay Compliant</h4>
+                    <h3>Tetap dalam jalur dan selalu update dengan progress</h3 >
                     <ul>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list1}}</div>
+                            <div class="text-list">Digitise and automate field processes to enforce compliance</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list2}}</div>
+                            <div class="text-list">Reduce compliance management costs by 80%</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list3}}</div>
+                            <div class="text-list">Protect your company legally and contractually</div>
                         </li>
                     </ul>
                 </div>
@@ -158,20 +158,20 @@
                 <!-- End Single Item -->
                 <!-- Start Single Item -->
                 <div class="col-md-7 col-md-offset-1">
-                    <h4>{{$dt_home->section5_title1}}​</h4>
-                    <h3>{{$dt_home->section5_title2}}</h3 >
+                    <h4>Don’t waste your data​</h4>
+                    <h3>Kami selalu aware dengan data yang anda berikan pada kami</h3 >
                     <ul>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list1}}</div>
+                            <div class="text-list">Digitise and automate field processes to enforce compliance</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list2}}</div>
+                            <div class="text-list">Reduce compliance management costs by 80%</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list3}}</div>
+                            <div class="text-list">Protect your company legally and contractually</div>
                         </li>
                     </ul>
                 </div>
@@ -188,20 +188,20 @@
             <div class="row">
                 <!-- Start Single Item -->
                 <div class="col-md-7 default-padding-bottom">
-                    <h4>{{$dt_home->section6_title1}}</h4>
-                    <h3>{{$dt_home->section6_title2}}</h3 >
+                    <h4>Track Progress</h4>
+                    <h3>Selalu awasi pembangunan dengan Tracking progress</h3 >
                     <ul>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list1}}</div>
+                            <div class="text-list">Digitise and automate field processes to enforce compliance</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list2}}</div>
+                            <div class="text-list">Reduce compliance management costs by 80%</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list3}}</div>
+                            <div class="text-list">Protect your company legally and contractually</div>
                         </li>
                     </ul>
                 </div>
@@ -225,8 +225,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site-heading">
-                        <h2>{{$dt_home->section7_title1}}</h2>
-                        <h4>{{$dt_home->section7_title2}}</h4>
+                        <h2>Construction field management software<br>purpose-built for your business</h2>
+                        <h4>Kami memiliki layanan Arsitektur dan Kontraktor</h4>
                     </div>
                 </div>
             </div>
@@ -234,19 +234,19 @@
                 <!-- Start Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
-                        <h4>{{$dt_home->section7_subtitle1}}</h4>
+                        <h4>For multiple small & medium projects</h4>
                         <ul>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_a}}</div>
+                                <div class="text-list">Project Progress & KPIs</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_b}}</div>
+                                <div class="text-list">HSEQ Assurance</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_c}}</p>
+                                <div class="text-list">Workforce & Equipment</p>
                             </li>
                         </ul>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
@@ -256,19 +256,19 @@
                 <!-- Start Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
-                        <h4>{{$dt_home->section7_subtitle2}}</h4>
+                        <h4>For multiple small & medium projects</h4>
                         <ul>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_a}}</div>
+                                <div class="text-list">Client Handovers</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_b}}</div>
+                                <div class="text-list">Contractors’ Management</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_c}}</p>
+                                <div class="text-list">Compliance Enforcement</p>
                             </li>
                         </ul>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
@@ -278,19 +278,19 @@
                 <!-- Start Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
-                        <h4>{{$dt_home->section7_subtitle3}}</h4>
+                        <h4>For multiple small & medium projects</h4>
                         <ul>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_a}}</div>
+                                <div class="text-list">Project Progress</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_b}}</div>
+                                <div class="text-list">Site Coordination</div>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_c}}</p>
+                                <div class="text-list">Contractors’ Management</p>
                             </li>
                         </ul>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
@@ -308,8 +308,8 @@
         <div class="container">
             <div class="row" style="padding-bottom: 20px;">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2>{{$dt_home->section8_title1}}</h2>
-                    <h4>{{$dt_home->section8_title2}}</h4>
+                    <h2>Tertarik bekerjasama dengan kami?</h2>
+                    <h4>Segera hubungi kontak dibawah ini</h4>
                 </div>
             </div>
             <div class="row">

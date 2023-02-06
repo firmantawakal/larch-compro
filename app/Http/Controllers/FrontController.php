@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Schedule;
-use App\Models\Season;
-use App\Models\Club;
-use App\Models\Posts;
+use App\Models\Home;
 
 class FrontController extends Controller
 {
@@ -18,7 +15,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        $dt_home = Home::where('id', 1)->first();
+        return view('frontend.home',compact('dt_home'));
     }
 
     public function signup()
