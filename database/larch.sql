@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 05, 2023 at 12:39 AM
+-- Generation Time: Feb 08, 2023 at 10:34 AM
 -- Server version: 10.10.2-MariaDB
 -- PHP Version: 8.0.26
 
@@ -39,6 +39,100 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home`
+--
+
+CREATE TABLE `home` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section1_title` varchar(255) DEFAULT NULL,
+  `section1_subtitle1` varchar(255) DEFAULT NULL,
+  `section1_content1` text DEFAULT NULL,
+  `section1_subtitle2` varchar(255) DEFAULT NULL,
+  `section1_content2` text DEFAULT NULL,
+  `section1_image` text DEFAULT NULL,
+  `section2_title1` varchar(255) DEFAULT NULL,
+  `section2_title2` varchar(255) DEFAULT NULL,
+  `section2_subtitle1` varchar(255) DEFAULT NULL,
+  `section2_content1` text DEFAULT NULL,
+  `section2_image1` text DEFAULT NULL,
+  `section2_subtitle2` varchar(255) DEFAULT NULL,
+  `section2_content2` text DEFAULT NULL,
+  `section2_image2` text DEFAULT NULL,
+  `section3_title` varchar(255) DEFAULT NULL,
+  `section3_image` text DEFAULT NULL,
+  `section3_content` text DEFAULT NULL,
+  `section4_title1` varchar(255) DEFAULT NULL,
+  `section4_title2` varchar(255) DEFAULT NULL,
+  `section4_image` text DEFAULT NULL,
+  `section4_list1` varchar(255) DEFAULT NULL,
+  `section4_list2` varchar(255) DEFAULT NULL,
+  `section4_list3` varchar(255) DEFAULT NULL,
+  `section5_title1` varchar(255) DEFAULT NULL,
+  `section5_title2` varchar(255) DEFAULT NULL,
+  `section5_image` text DEFAULT NULL,
+  `section5_list1` varchar(255) DEFAULT NULL,
+  `section5_list2` varchar(255) DEFAULT NULL,
+  `section5_list3` varchar(255) DEFAULT NULL,
+  `section6_title1` varchar(255) DEFAULT NULL,
+  `section6_title2` varchar(255) DEFAULT NULL,
+  `section6_image` text DEFAULT NULL,
+  `section6_list1` varchar(255) DEFAULT NULL,
+  `section6_list2` varchar(255) DEFAULT NULL,
+  `section6_list3` varchar(255) DEFAULT NULL,
+  `section7_title1` varchar(255) DEFAULT NULL,
+  `section7_title2` varchar(255) DEFAULT NULL,
+  `section7_subtitle1` varchar(255) DEFAULT NULL,
+  `section7_list1_a` text DEFAULT NULL,
+  `section7_list1_b` text DEFAULT NULL,
+  `section7_list1_c` text DEFAULT NULL,
+  `section7_subtitle2` varchar(255) DEFAULT NULL,
+  `section7_list2_a` text DEFAULT NULL,
+  `section7_list2_b` text DEFAULT NULL,
+  `section7_list2_c` text DEFAULT NULL,
+  `section7_subtitle3` varchar(255) DEFAULT NULL,
+  `section7_list3_a` text DEFAULT NULL,
+  `section7_list3_b` text DEFAULT NULL,
+  `section7_list3_c` text DEFAULT NULL,
+  `section8_title1` varchar(255) DEFAULT NULL,
+  `section8_title2` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `home` (`id`, `section1_title`, `section1_subtitle1`, `section1_content1`, `section1_subtitle2`, `section1_content2`, `section1_image`, `section2_title1`, `section2_title2`, `section2_subtitle1`, `section2_content1`, `section2_image1`, `section2_subtitle2`, `section2_content2`, `section2_image2`, `section3_title`, `section3_image`, `section3_content`, `section4_title1`, `section4_title2`, `section4_image`, `section4_list1`, `section4_list2`, `section4_list3`, `section5_title1`, `section5_title2`, `section5_image`, `section5_list1`, `section5_list2`, `section5_list3`, `section6_title1`, `section6_title2`, `section6_image`, `section6_list1`, `section6_list2`, `section6_list3`, `section7_title1`, `section7_title2`, `section7_subtitle1`, `section7_list1_a`, `section7_list1_b`, `section7_list1_c`, `section7_subtitle2`, `section7_list2_a`, `section7_list2_b`, `section7_list2_c`, `section7_subtitle3`, `section7_list3_a`, `section7_list3_b`, `section7_list3_c`, `section8_title1`, `section8_title2`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Sebagai kontraktor handal kami hadir untuk mewujudkan hunian terbaik anda', 'Larch for business', 'Travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything', 'Larch for personal', 'Travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything', '20230208084851-7525817111.png', 'Solusi hunian untuk anda', 'Kami memiliki layanan Arsitektur dan Kontraktor', 'For multiple small & medium projects', 'Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected', '20230208084851-3843015390.png', 'For large & complex site operations', 'Favourite tolerably engrossed. Truth short folly court why she their balls. Excellence put unaffected', '20230208084851-8199345083.png', 'Kami selalu flexible dan tepat waktu dalam pembangunan', '20230208085205-8709710410.png', 'Pntroduced day her apartments. Fully as taste he mr do smile abode every. Luckily offered article led lasting country minutes nor old. Happen people things oh is oppose up parish effect. Law handsome old outweigh humoured far appetite.', 'Stay Compliant', 'Tetap dalam jalur dan selalu update dengan progress', '20230208085205-4973336829.png', 'Digitise and automate field processes to enforce compliance', 'Reduce compliance management costs by 80%', 'Protect your company legally and contractually', 'Don’t waste your data', 'Kami selalu aware dengan data yang anda berikan pada kami', '20230208085205-5970890001.png', 'Digitise and automate field processes to enforce compliance', 'Reduce compliance management costs by 80%', 'Protect your company legally and contractually', 'Track Progress', 'Selalu awasi pembangunan dengan Tracking progress', '20230208085205-5897695368.png', 'Digitise and automate field processes to enforce compliance', 'Reduce compliance management costs by 80%', 'Protect your company legally and contractually', 'Construction field management software purpose-built for your business', 'For multiple small & medium projects', 'For multiple small & medium projects', 'Project Progress & KPIs', 'HSEQ Assurance', 'Workforce & Equipment', 'For multiple small & medium projects', 'Client Handovers', 'Contractors’ Management', 'Compliance Enforcement', 'For multiple small & medium projects', 'Project Progress', 'Site Coordination', 'Contractors’ Management', 'Tertarik bekerjasama dengan kami?', 'Segera hubungi kontak dibawah ini', NULL, NULL, '2023-02-08 02:31:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis_pembangunan`
+--
+
+CREATE TABLE `jenis_pembangunan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_jenis` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `jenis_pembangunan`
+--
+
+INSERT INTO `jenis_pembangunan` (`id`, `nama_jenis`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rumah Pribadi', NULL, NULL, '2023-02-07 15:58:37'),
+(3, 'Kantor', NULL, '2023-02-07 15:58:51', '2023-02-07 15:58:51'),
+(4, 'Apartemen', NULL, '2023-02-07 15:59:08', '2023-02-07 15:59:08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -57,7 +151,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_02_02_000448_visitor', 2);
+(5, '2023_02_02_000448_visitor', 2),
+(6, '2023_02_05_085117_home', 3),
+(7, '2023_02_07_153854_jenis_pembangunan', 4),
+(8, '2023_02_08_094339_setting', 5);
 
 -- --------------------------------------------------------
 
@@ -92,6 +189,27 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `whatsapp` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id`, `whatsapp`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, '6282234567', NULL, NULL, '2023-02-08 02:58:16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -113,7 +231,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `level`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin1', 'admin@gmail.com', NULL, '$2y$10$iQQk3/iNllkV4CEs1d9/YePlwgxAkMGbMxc.1mZXQ.8ixHOTGtUMC', 'admin', 1, NULL, '2023-01-28 01:58:42', '2023-02-01 16:54:57');
+(1, 'Admin1', 'admin@gmail.com', NULL, '$2y$10$iQQk3/iNllkV4CEs1d9/YePlwgxAkMGbMxc.1mZXQ.8ixHOTGtUMC', 'admin', 1, NULL, '2023-01-28 01:58:42', '2023-02-01 16:54:57'),
+(2, 'qweqqqqqqavv', 'admin@gmail.comw2www', NULL, '$2y$10$poM4O.oZ3a2Nqn1Q7kS5MeQlXd40Fytw1YMIW.voeruVJ4fpTYZwK', 'admin', 0, NULL, '2023-02-08 01:01:27', '2023-02-08 01:02:14');
 
 -- --------------------------------------------------------
 
@@ -124,6 +243,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `le
 CREATE TABLE `visitor` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` text DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `kota` text DEFAULT NULL,
   `no_telp` varchar(100) NOT NULL,
@@ -144,8 +265,12 @@ CREATE TABLE `visitor` (
 -- Dumping data for table `visitor`
 --
 
-INSERT INTO `visitor` (`id`, `nama`, `alamat`, `kota`, `no_telp`, `jenis_pembangunan`, `issame_location`, `alamat_lokasi`, `kota_lokasi`, `luas_tanah1`, `luas_tanah2`, `file`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'test', 'test', '', 'test', 1, 'test', 'test', 12, 12, 'test', 1, NULL, NULL, NULL);
+INSERT INTO `visitor` (`id`, `nama`, `email`, `password`, `alamat`, `kota`, `no_telp`, `jenis_pembangunan`, `issame_location`, `alamat_lokasi`, `kota_lokasi`, `luas_tanah1`, `luas_tanah2`, `file`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'test', NULL, NULL, 'test', 'test', '', '1', 1, 'test', 'test', 12, 12, 'test', 1, NULL, NULL, NULL),
+(2, 'sdfdsfs', NULL, NULL, 'sdfds', 'KAB. GORONTALO UTARA, GORONTALO', '2342424', '1', 0, 'zczcxzxc', 'KAB. SIJUNJUNG, SUMATERA BARAT', 12, 32, NULL, 1, NULL, '2023-02-07 16:48:16', '2023-02-07 16:48:16'),
+(3, 'asa', NULL, NULL, 'aaa', 'KAB. TAPANULI UTARA, SUMATERA UTARA', '222', '4', 1, NULL, ', - Pilih Provinsi -', 22, 22, NULL, 1, NULL, '2023-02-07 16:53:32', '2023-02-07 16:53:32'),
+(4, 'ss', NULL, NULL, 'ssss', 'KAB. TAPANULI UTARA, SUMATERA UTARA', 'ddd', '4', 1, NULL, ', - Pilih Provinsi -', 444, 44, NULL, 0, NULL, '2023-02-07 16:54:37', '2023-02-07 20:19:45'),
+(5, 'test', NULL, NULL, 'test', 'KOTA BANJARBARU, KALIMANTAN SELATAN', '434343434', '3', 1, 'test', 'KOTA BANJARBARU, KALIMANTAN SELATAN', 22, 31, NULL, 1, NULL, '2023-02-07 20:10:55', '2023-02-07 20:10:55');
 
 --
 -- Indexes for dumped tables
@@ -155,6 +280,18 @@ INSERT INTO `visitor` (`id`, `nama`, `alamat`, `kota`, `no_telp`, `jenis_pembang
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `home`
+--
+ALTER TABLE `home`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jenis_pembangunan`
+--
+ALTER TABLE `jenis_pembangunan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -176,6 +313,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -201,10 +344,22 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `home`
+--
+ALTER TABLE `home`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `jenis_pembangunan`
+--
+ALTER TABLE `jenis_pembangunan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -213,16 +368,22 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
