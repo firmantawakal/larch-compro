@@ -34,7 +34,7 @@ Route::prefix('admin')->group(function () {
         Route:: resource('user', '\App\Http\Controllers\UserController')->middleware('role:admin');
         Route:: get('user/unarchive/{id}', [UserController::class, 'unarchive'])->name('user.unarchive')->middleware('role:admin');
 
-        Route::get('home', [HomeController::class, 'edit'])->name('home');
+        Route::get('home/{section}', [HomeController::class, 'edit'])->name('home');
         Route::patch('home/update/{id}', [HomeController::class, 'update'])->name('home.update');
         Route::get('setting', [HomeController::class, 'setting'])->name('home.setting');
         Route::patch('setting/update/{id}', [HomeController::class, 'setting_action'])->name('home.setting.update');

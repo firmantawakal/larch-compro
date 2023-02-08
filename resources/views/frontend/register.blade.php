@@ -20,7 +20,7 @@
                     <div class="form-box">
                         <h2>Get Started</h2>
                         <h4>Selamat datang di Larch - buat akun anda</h4>
-                        <form class="contact-form">
+                        <form class="contact-form" enctype="multipart/form-data" method="POST">
                             <div class="col-12">
                                 <div class="form-group required">
                                         <label for="" class='control-label'>Nama</label>
@@ -49,7 +49,7 @@
                             <div class="col-12">
                                 <div class="form-group required">
                                         <label for="" class='control-label'>Alamat Anda</label>
-                                        <textarea class="form-control" id="alamat" rows="2" placeholder="Alamat lengkap"></textarea>
+                                        <textarea class="form-control" id="alamat" rows="2" placeholder="Alamat lengkap" required></textarea>
                                         <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -74,7 +74,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="jenis_pembangunan">Jenis Pembangunan</label>
-                                    <select class="form-control" id="jenis_pembangunan">
+                                    <select class="form-control" id="jenis_pembangunan" required>
+                                        <option value="">-- Pilih Jenis Pembangunan --</option>
                                         @foreach ($jenisPembangunan as $jp)
                                             <option value="{{$jp->id}}">{{$jp->nama_jenis}}</option>
                                         @endforeach   
@@ -127,12 +128,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group required">
                                       <input type="number"
-                                        class="form-control" id="luas_tanah1" aria-describedby="helpId" placeholder="Panjang">
+                                        class="form-control" id="luas_tanah1" aria-describedby="helpId" placeholder="Panjang" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group required">
-                                        <input type="number" class="form-control" id="luas_tanah2" aria-describedby="helpId" placeholder="Lebar">
+                                        <input type="number" class="form-control" id="luas_tanah2" aria-describedby="helpId" placeholder="Lebar" required>
                                     </div>
                                 </div>
                             </div>
@@ -147,8 +148,8 @@
                                     class="dropify" 
                                     data-height="100" 
                                     data-show-remove="false" 
-                                    data-max-file-size="3M" 
-                                    multiple/>
+                                    data-max-file-size="2M" 
+                                    />
                                 </div>
                                 </div>
                             </div>
@@ -312,29 +313,30 @@
     });
     
     function submitData(){
-        let values = {
-            'nama' : $('#nama').val(),
-            'email' : $('#email').val(),
-            'password' : $('#password').val(),
-            'alamat' : $('#alamat').val(),
-            'kota' : $("#select2-kabupaten option:selected").text()+', '+$("#select2-provinsi option:selected").text(),
-            'no_telp' : $('#no_telp').val(),
-            'jenis_pembangunan' : $('#jenis_pembangunan').val(),
-            'issame_location' : $('input[name="issame_location"]:checked').val(),
-            'alamat_lokasi' : $('#alamat_lokasi').val(),
-            'kota_lokasi' : $("#select2-kabupaten2 option:selected").text()+', '+$("#select2-provinsi2 option:selected").text(),
-            'luas_tanah1' : $('#luas_tanah1').val(),
-            'luas_tanah2' : $('#luas_tanah2').val(),
-            'input_file' : $('#input-file').val(),
-        }
-        console.log(values)
-
+        let formData = new FormData();
+        formData.append('input_file', $('#input-file')[0].files[0]);
+        formData.append('_token', "{{ csrf_token() }}");
+        formData.append('nama', $("#nama").val());
+        formData.append('email', $("#email").val());
+        formData.append('password', $("#password").val());
+        formData.append('alamat', $("#alamat").val());
+        formData.append('kota', $("#select2-kabupaten option:selected").text()+', '+$("#select2-provinsi option:selected").text());
+        formData.append('no_telp', $("#no_telp").val());
+        formData.append('jenis_pembangunan', $("#jenis_pembangunan").val());
+        formData.append('issame_location', $('input[name="issame_location"]:checked').val());
+        formData.append('kota_lokasi', $("#select2-kabupaten2 option:selected").text()+', '+$("#select2-provinsi2 option:selected").text());
+        formData.append('alamat_lokasi', $("#alamat_lokasi").val());
+        formData.append('luas_tanah1', $("#luas_tanah1").val());
+        formData.append('luas_tanah2', $("#luas_tanah2").val());
+        
         $.ajax({
             url: '{{ route("visitor.store") }}',
             type: "POST",
-            data: values ,
+            data: formData, // high importance!
+            processData: false, // high importance!
+            contentType: false, // high importance!
             headers: {
-                'X-CSRF-Token': '{{ csrf_token() }}',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
                 console.log(response)

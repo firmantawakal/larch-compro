@@ -38,7 +38,7 @@
             <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
                 <div class="tab-pane fade active show" id="main" role="tabpanel" aria-labelledby="main-tab">
-                <button data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-md btn-success mb-3"><i class="nav-icon fas fa-plus"></i></button>
+                <button data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-xs btn-success mb-3">Tambah</button>
                 <!-- Modal create-->
                 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -96,12 +96,12 @@
                             <td>{{ $user->email }}</td>
                             <td>
                                 <div class="d-inline-flex">
-                                    <button data-bs-toggle="modal" data-bs-target="#editModal{{$user->id}}" class="btn btn-sm btn-primary" style="margin-right:10px"><i class="fas fa-edit"></i></button>
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                    <button data-bs-toggle="modal" data-bs-target="#editModal{{$user->id}}" class="btn btn-xs btn-primary" style="margin-right:10px">Edit</button>
+                                    <form onsubmit="return confirm('Yakin ingin mengarsip data?');"
                                         action="{{ route('user.destroy', $user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-box"></i></button>
+                                        <button type="submit" class="btn btn-xs btn-danger">Arsipkan</button>
                                     </form>
                                 </div>
                             </td>
@@ -172,8 +172,8 @@
                                 <td>{{ $user_arc->email }}</td>
 
                                 <td class="text-center">
-                                    <button data-bs-toggle="modal" data-bs-target="#editModalArc{{$user_arc->id}}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-edit"></i></button>
-                                    <a href="{{ route('user.unarchive', $user_arc->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-box-open"></i></a>
+                                    <button data-bs-toggle="modal" data-bs-target="#editModalArc{{$user_arc->id}}" class="btn btn-xs btn-primary mr-2">Edit</button>
+                                    <a href="{{ route('user.unarchive', $user_arc->id) }}" class="btn btn-xs btn-warning">Aktifkan</a>
                                 </td>
                             </tr>
                             <!-- Modal edit-->

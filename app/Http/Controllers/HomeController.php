@@ -13,10 +13,10 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
 
-    public function edit()
+    public function edit($section)
     {
         $dt_home = Home::where('id', 1)->first();
-        return view('admin.home',compact('dt_home'));
+        return view('admin.home',compact('dt_home', 'section'));
     }
 
     /**
@@ -37,6 +37,7 @@ class HomeController extends Controller
                 'section4_image_old',
                 'section5_image_old',
                 'section6_image_old',
+                'section',
                 '_token',
                 '_method'
             ]);
@@ -65,7 +66,7 @@ class HomeController extends Controller
 
             Home::where('id',$id)->update($value);
 
-            return redirect()->route('home', 1)
+            return redirect()->route('home', $request->section)
                         ->with('success','Update Berhasil');
         }  catch (\Exception $ex) {
             dd($ex);

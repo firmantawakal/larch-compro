@@ -63,14 +63,14 @@
                                                 <td>{{ $visitor->jenisPembangunan->nama_jenis }}</td>
                                                 <td>{{ $visitor->alamat_lokasi . ', ' . ucwords(strtolower($visitor->kota_lokasi)) }}</td>
                                                 <td>{{ $visitor->luas_tanah1 . 'm X ' . $visitor->luas_tanah2.' m' }}</td>
-                                                <td>{{ $visitor->file }}</td>
+                                                <td><a href="{{ url('image/visitor/'.$visitor->file)}}" target="_blank" rel="noopener noreferrer">Buka File</a></td>
                                                 <td>
                                                     <div class="d-inline-flex">
-                                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                        <form onsubmit="return confirm('Yakin ingin mengarsip data?');"
                                                             action="{{ route('visitor.destroy', $visitor->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-box"></i></button>
+                                                            <button type="submit" class="btn btn-xs btn-danger">Arsipkan</button>
                                                         </form>
                                                     </div>
                                                 </td>
@@ -110,10 +110,10 @@
                                                 <td>{{ $visitor_arc->jenisPembangunan->nama_jenis }}</td>
                                                 <td>{{ $visitor_arc->alamat_lokasi . ', ' . ucwords(strtolower($visitor_arc->kota_lokasi)) }}</td>
                                                 <td>{{ $visitor_arc->luas_tanah1 . 'm X ' . $visitor_arc->luas_tanah2.' m' }}</td>
-                                                <td>{{ $visitor_arc->file }}</td>
+                                                <td><a href="{{ url('image/visitor/'.$visitor_arc->file)}}" target="_blank" rel="noopener noreferrer">Buka File</a> </td>
                                                 <td>
                                                     <div class="d-inline-flex">
-                                                        <a href="{{ route('visitor.unarchive', $visitor_arc->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-box-open"></i></a>
+                                                        <a href="{{ route('visitor.unarchive', $visitor_arc->id) }}" class="btn btn-xs btn-warning">Aktifkan</a>
 
                                                     </div>
                                                 </td>

@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Larch Team">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- ========== Page Title ========== -->
     <title>Larch Team</title>
 
     <!-- ========== Favicon Icon ========== -->
-  <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet" />

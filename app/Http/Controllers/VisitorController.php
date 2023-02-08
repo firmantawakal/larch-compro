@@ -45,9 +45,9 @@ class VisitorController extends Controller
             "kota_lokasi" => $request->issame_location == 1 ? $request->kota : $request->kota_lokasi,
             "luas_tanah1" => $request->luas_tanah1,
             "luas_tanah2" => $request->luas_tanah2,
-            "file" => $request->input_file,
+            "file" => $this->upload($request, 'input_file'),
         ];
-
+        
         $query = Visitor::create($insert);
 
         if ($query) {
@@ -77,5 +77,15 @@ class VisitorController extends Controller
 
         return redirect()->route('visitor')
                         ->with('success','Data visitor berhasil di aktifkan');
+    }
+
+    public function upload($request, $fieldName){
+        $image = $request->file($fieldName);
+        $random = mt_rand(1000000000, 9999999999);
+        $destinationPath = 'image/visitor/';
+        $name = date('YmdHis-').$random."." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $name);
+        
+        return $name;
     }
 }
