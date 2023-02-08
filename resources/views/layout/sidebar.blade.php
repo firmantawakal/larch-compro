@@ -24,10 +24,22 @@
           <span class="link-title">Visitor</span>
         </a>
       </li>
+      <li class="nav-item {{ active_class(['admin/jenis_pembangunan']) }}">
+        <a href="{{ url('admin/jenis_pembangunan') }}" class="nav-link">
+          <i class="link-icon" data-feather="tag"></i>
+          <span class="link-title">Jenis Pembangunan</span>
+        </a>
+      </li>
       <li class="nav-item {{ active_class(['admin/user']) }}">
         <a href="{{ url('admin/user') }}" class="nav-link">
           <i class="link-icon" data-feather="user"></i>
           <span class="link-title">User</span>
+        </a>
+      </li>
+      <li class="nav-item {{ active_class(['admin/setting']) }}">
+        <a href="{{ url('admin/setting') }}" class="nav-link">
+          <i class="link-icon" data-feather="settings"></i>
+          <span class="link-title">Setting</span>
         </a>
       </li>
     </ul>

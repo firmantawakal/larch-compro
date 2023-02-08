@@ -6,7 +6,7 @@
     ============================================= -->
     <div class="banner-area content-double bg-theme-small normal-text default-padding-top">
         <div class="side-bg ">
-            <img class="" src="{{ asset('front/img/image1.png')}}" alt="Thumb" style="min-width: fit-content;">
+            <img class="" src="{{ url('image/home/'.$dt_home->section1_image)}}" alt="Thumb" style="min-width: 70%;">
         </div>
         <div class="box-table">
             <div class="box-cell">
@@ -16,7 +16,7 @@
                             <h2>{{$dt_home->section1_title}}</h2>
                             <div class="btn-toolbar" >
                                 <button type="button" class="btn btn-theme" onclick="window.location='{{url('signup')}}'">Sign up</button>
-                                <button type="button" class="btn btn-dark border">Contact us</button>
+                                <a type="button" class="btn btn-dark border" target="_blank" href='https://wa.me/{{$dt_setting->whatsapp}}'>Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
-                        <img src="{{ asset('front/img/image2.png')}}" alt="Thumb" style="max-width: 300px;">
+                        <img src="{{ url('image/home/'.$dt_home->section2_image1)}}" alt="Thumb" style="max-width: 300px;">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -79,7 +79,7 @@
                         </p>
                         <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
                         <br><br>
-                        <img src="{{ asset('front/img/image2.png')}}" alt="Thumb" style="max-width: 300px;">
+                        <img src="{{ url('image/home/'.$dt_home->section2_image2)}}" alt="Thumb" style="max-width: 300px;">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -94,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 thumb">
-                    <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
+                    <img src="{{ url('image/home/'.$dt_home->section3_image)}}" alt="Thumb">
                 </div>
                 <div class="col-md-7 info">
                     <h2>{{$dt_home->section3_title}}</h2>
@@ -135,7 +135,7 @@
                 <!-- Start Single Item -->
                 <div class="col-md-5 col-md-offset-1 single-item">
                     <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
-                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
+                        <img src="{{ url('image/home/'.$dt_home->section4_image)}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -152,7 +152,7 @@
                 <!-- Start Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item" style="background-color:#fdf4ef;padding: 45px 0px 0px 45px;">
-                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
+                        <img src="{{ url('image/home/'.$dt_home->section5_image)}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -209,7 +209,7 @@
                 <!-- Start Single Item -->
                 <div class="col-md-4 col-md-offset-1 single-item">
                     <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
-                        <img src="{{ asset('front/img/image3.png')}}" alt="Thumb">
+                        <img src="{{ url('image/home/'.$dt_home->section6_image)}}" alt="Thumb">
                     </div>
                 </div>
                 <!-- End Single Item -->
@@ -321,7 +321,7 @@
                             </div>
                             <div class="col-md-6 col-xs-6">
                                 <div class="form-group">
-                                <button type="button" class="btn btn-light border">Contact us</button>
+                                <button type="button" onclick="javascript:window.open('https://wa.me/{{$dt_setting->whatsapp}}', '_blank')" class="btn btn-light border">Contact us</button>
                                 </div>
                             </div>
                         </div>

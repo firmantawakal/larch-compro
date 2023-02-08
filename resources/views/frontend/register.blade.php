@@ -1,7 +1,15 @@
 @extends('frontend.layout.master')
 
 @section('content')
-
+<style>
+    .field-icon {
+        float: right;
+        padding-right: 20px;
+        margin-top: -30px;
+        position: relative;
+        z-index: 2;
+    }
+</style>
     <!-- Start Contact Area
     ============================================= -->
     <div id="contact" class="contact-us-area default-padding">
@@ -17,7 +25,24 @@
                                 <div class="form-group required">
                                         <label for="" class='control-label'>Nama</label>
                                         <input class="form-control" id="nama" placeholder="Nama Anda"
-                                            type="text">
+                                            type="text" required>
+                                        <span class="alert-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group required">
+                                        <label for="" class='control-label'>Email</label>
+                                        <input class="form-control" id="email" placeholder="Email Anda"
+                                            type="email" required>
+                                        <span class="alert-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group required">
+                                        <label for="" class='control-label'>Password</label>
+                                        <input class="form-control" id="password" placeholder="Password Anda"
+                                            type="password" required>
+                                        <span toggle="#password" class="fa fa-sun field-icon toggle-password"></span>
                                         <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -43,17 +68,16 @@
                             <div class="col-12">
                                 <div class="form-group required">
                                     <label for="telp" class='control-label'>No. Telepon</label>
-                                    <input type="text"
-                                    class="form-control" id="no_telp" aria-describedby="helpId" placeholder="123-456">
+                                    <input type="text" class="form-control" id="no_telp" placeholder="123-456" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="jenis_pembangunan">Jenis Pembangunan</label>
                                     <select class="form-control" id="jenis_pembangunan">
-                                    <option>a</option>
-                                    <option>b</option>
-                                    <option>c</option>
+                                        @foreach ($jenisPembangunan as $jp)
+                                            <option value="{{$jp->id}}">{{$jp->nama_jenis}}</option>
+                                        @endforeach   
                                     </select>
                                 </div>
                             </div>
@@ -103,12 +127,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group required">
                                       <input type="number"
-                                        class="form-control" id="luas_tanah1" aria-describedby="helpId" placeholder="m2">
+                                        class="form-control" id="luas_tanah1" aria-describedby="helpId" placeholder="Panjang">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group required">
-                                        <input type="number" class="form-control" id="luas_tanah2" aria-describedby="helpId" placeholder="m2">
+                                        <input type="number" class="form-control" id="luas_tanah2" aria-describedby="helpId" placeholder="Lebar">
                                     </div>
                                 </div>
                             </div>
@@ -276,10 +300,22 @@
             console.log("file name: " + name);
         }
     });
+
+    $(".toggle-password").click(function() {
+        // $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
     
     function submitData(){
         let values = {
             'nama' : $('#nama').val(),
+            'email' : $('#email').val(),
+            'password' : $('#password').val(),
             'alamat' : $('#alamat').val(),
             'kota' : $("#select2-kabupaten option:selected").text()+', '+$("#select2-provinsi option:selected").text(),
             'no_telp' : $('#no_telp').val(),
@@ -302,8 +338,13 @@
             },
             success: function (response) {
                 console.log(response)
-                swal("Good job!", "You clicked the button!", "success");
-                // You will get response from your PHP page (what you echo or print)
+                swal({
+                    title: "Berhasil",
+                    text: "Pendaftaran akun berhasil dilakukan",
+                    icon: "success"
+                }).then(function() {
+                    window.location = '{{url("/")}}';
+                });
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);

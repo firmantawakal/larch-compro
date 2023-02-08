@@ -22,4 +22,9 @@ class Visitor extends Model
         'luas_tanah2',
         'file',
     ];
+
+    public function jenisPembangunan()
+    {
+        return $this->hasOne(JenisPembangunan::class, 'id', 'jenis_pembangunan');
+    }
 }

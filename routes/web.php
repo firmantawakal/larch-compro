@@ -3,13 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ClubController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\JenisPembangunanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,10 +36,19 @@ Route::prefix('admin')->group(function () {
 
         Route::get('home', [HomeController::class, 'edit'])->name('home');
         Route::patch('home/update/{id}', [HomeController::class, 'update'])->name('home.update');
+        Route::get('setting', [HomeController::class, 'setting'])->name('home.setting');
+        Route::patch('setting/update/{id}', [HomeController::class, 'setting_action'])->name('home.setting.update');
         Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
+        
+        Route::get('jenis_pembangunan', [JenisPembangunanController::class, 'index'])->name('jenis_pembangunan');
+        Route::patch('jenis_pembangunan/update/{id}', [JenisPembangunanController::class, 'update'])->name('jenis_pembangunan.update');
+        Route::post('jenis_pembangunan/store', [JenisPembangunanController::class, 'store'])->name('jenis_pembangunan.store');
+        Route::delete('jenis_pembangunan/destroy/{id}', [JenisPembangunanController::class, 'destroy'])->name('jenis_pembangunan.destroy');
 
         Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
         Route::get('visitor/detail/{id}', [VisitorController::class, 'detail'])->name('visitor.detail');
+        Route::delete('visitor/destroy/{id}', [VisitorController::class, 'destroy'])->name('visitor.destroy');
+        Route::get('visitor/unarchive/{id}', [VisitorController::class, 'unarchive'])->name('visitor.unarchive');
     });
 });
 

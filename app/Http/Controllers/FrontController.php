@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Home;
+use App\Models\JenisPembangunan;
+use App\Models\Setting;
 
 class FrontController extends Controller
 {
@@ -16,12 +17,15 @@ class FrontController extends Controller
     public function index()
     {
         $dt_home = Home::where('id', 1)->first();
-        return view('frontend.home',compact('dt_home'));
+        $dt_setting = Setting::where('id', 1)->first();
+        return view('frontend.home',compact('dt_home', 'dt_setting'));
     }
 
     public function signup()
     {
-        return view('frontend.register');
+        $jenisPembangunan = JenisPembangunan::orderBy('nama_jenis', 'asc')->get();
+        $dt_setting = Setting::where('id', 1)->first();
+        return view('frontend.register',compact('jenisPembangunan', 'dt_setting'));
     }
 
 

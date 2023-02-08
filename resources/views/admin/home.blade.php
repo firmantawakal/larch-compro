@@ -296,7 +296,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="col-form-label">Subtitle 3</label>
-                                    <input type="text" name="section7_title2" value="{{$dt_home->section7_title2}}" class="form-control">
+                                    <input type="text" name="section7_subtitle3" value="{{$dt_home->section7_subtitle3}}" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label class="col-form-label">List 3 (a)</label>

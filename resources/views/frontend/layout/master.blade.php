@@ -12,7 +12,7 @@
     <title>Larch Team</title>
 
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ asset('/img/favicon.ico')}}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet" />

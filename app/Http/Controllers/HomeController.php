@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Home;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -66,6 +66,26 @@ class HomeController extends Controller
             Home::where('id',$id)->update($value);
 
             return redirect()->route('home', 1)
+                        ->with('success','Update Berhasil');
+        }  catch (\Exception $ex) {
+            dd($ex);
+        }
+    }
+
+    public function setting()
+    {
+        $dt_setting = Setting::where('id', 1)->first();
+        return view('admin.setting',compact('dt_setting'));
+    }
+
+    public function setting_action(Request $request, $id)
+    {
+        try {
+            $value['whatsapp'] = $request->whatsapp;
+
+            Setting::where('id',$id)->update($value);
+
+            return redirect()->route('home.setting', 1)
                         ->with('success','Update Berhasil');
         }  catch (\Exception $ex) {
             dd($ex);

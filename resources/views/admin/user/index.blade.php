@@ -63,13 +63,13 @@
                                     <label>Password:</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
-                                <div class="form-group mb-3">
+                                {{-- <div class="form-group mb-3">
                                     <label>Role:</label>
                                     <select name="role" class="form-control" required placeholder="Role">
                                         <option value="author">Author</option>
                                         <option value="admin">Admin</option>
                                     </select>
-                                </div>
+                                </div> --}}
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -85,7 +85,6 @@
                             <th scope="col">No.</th>
                             <th scope="col">Nama User</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Role</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -95,7 +94,6 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
                             <td>
                                 <div class="d-inline-flex">
                                     <button data-bs-toggle="modal" data-bs-target="#editModal{{$user->id}}" class="btn btn-sm btn-primary" style="margin-right:10px"><i class="fas fa-edit"></i></button>
@@ -133,13 +131,13 @@
                                             <label>Password:</label>
                                             <input type="password" name="password" class="form-control" placeholder="Password">
                                         </div>
-                                        <div class="form-group mb-3">
+                                        {{-- <div class="form-group mb-3">
                                             <label>Role:</label>
                                             <select name="role" class="form-control" required placeholder="Role">
                                                 <option @if ($user->role == 'author') selected @endif value="author">Author</option>
                                                 <option @if ($user->role == 'admin') selected @endif value="admin">Admin</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -163,7 +161,6 @@
                                 <th scope="col">No.</th>
                                 <th scope="col">Nama User</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Role</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -173,7 +170,6 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{ $user_arc->name }}</td>
                                 <td>{{ $user_arc->email }}</td>
-                                <td>{{ $user_arc->role }}</td>
 
                                 <td class="text-center">
                                     <button data-bs-toggle="modal" data-bs-target="#editModalArc{{$user_arc->id}}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-edit"></i></button>

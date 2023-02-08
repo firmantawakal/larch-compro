@@ -42,14 +42,14 @@ class UserController extends Controller
             'name'        => 'string|max:100',
             'email'       => 'required|unique:users|string|min:5',
             'password'   => 'required|min:5',
-            'role'        => 'required',
         ]);
 
         if (isset($validated['password'])) {
             $validated['password'] = bcrypt($validated['password']);
         }
-        User::create($validated);
+        $validated['level'] = 'admin';
 
+        User::create($validated);
         return redirect()->route('user.index')
                         ->with('success','Data user berhasil ditambah');
     }
@@ -89,8 +89,8 @@ class UserController extends Controller
         $validated = $request->validate([
             'name'        => 'string|max:100',
             'email'       => 'required|string|min:5|unique:users,email,'.$user->id,
-            'role'        => 'required',
-            'password'    => '',
+            // 'role'        => 'required',
+            // 'password'    => '',
         ]);
 
         if (isset($validated['password'])) {

@@ -45,7 +45,7 @@
                     <div class="col-md-4 text-right">
                         <div class="collapse navbar-collapse" id="navbar-menu">
                             <div class="btn-toolbar navbar-right" style="margin-top: 20px;">
-                                <button type="button" class="btn btn-light border">Contact us</button>
+                                <a type="button" class="btn btn-light border" target="_blank" href='https://wa.me/{{$dt_setting->whatsapp}}'>Contact us</a>
                                 <button type="button" class="btn btn-theme" onclick="window.location='{{url('signup')}}'">Sign up</button>
                             </div>
                         </div><!-- /.navbar-collapse -->
