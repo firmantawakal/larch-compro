@@ -63,13 +63,6 @@
                                     <label>Password:</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
-                                {{-- <div class="form-group mb-3">
-                                    <label>Role:</label>
-                                    <select name="role" class="form-control" required placeholder="Role">
-                                        <option value="author">Author</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
-                                </div> --}}
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

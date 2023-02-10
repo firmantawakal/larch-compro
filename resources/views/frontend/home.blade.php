@@ -46,7 +46,7 @@
 
     <!-- Start Our Features
     ============================================= -->
-    <div class="our-feautes-area less-border default-padding-top">
+    <div class="case-study-area carousel-shadow default-padding-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -56,33 +56,46 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="padding-top: 30px;">
-                <!-- Start Single Item -->
-                <div class="col-md-6 single-item">
-                    <div class="item text-center" style="padding: 45px 45px 0px 45px;">
-                        <h4>{{$dt_home->section2_subtitle1}}</h4>
-                        <p>
-                            {{$dt_home->section2_content1}}
-                        </p>
-                        <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
-                        <br><br>
-                        <img src="{{ url('image/home/'.$dt_home->section2_image1)}}" alt="Thumb" style="max-width: 300px;">
+            <div class="row">
+                <div class="case-items">
+                    <div class="col-md-12">
+                        <div class="case-carousel owl-carousel owl-theme">
+                        	@foreach ($section2 as $sec2)
+                            <!-- Start Single Item -->
+                            <div class="item">
+                                <div class="thumb">
+                                    <img src="{{ url('image/home/'.$sec2->image)}}" alt="Thumb">
+                                    <div class="top-info">
+                                        <h4><a href="{{url('detail/2/'.$sec2->id)}}">{{$sec2->subtitle}}</a></h4>
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <p>
+                                        {{-- {{$sec2->content}} --}}
+                                        @php 
+                                        $str = $sec2->content;
+                                        if (strlen($str) > 140)
+                                        {
+                                            $str = substr($str, 0, 140);
+                                            $str = explode(' ', $str);
+                                            array_pop($str); // remove last word from array
+                                            $str = implode(' ', $str);
+                                            $str = $str . ' ...';
+                                        }
+                                        echo $str;
+                                        @endphp
+                                    </p>
+                                    <br>
+                                    <a href="{{url('detail/2/'.$sec2->id)}}" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
+
+                                </div>
+                            </div>
+                
+                            <!-- End Single Item -->
+                        @endforeach
+                        </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-6 single-item">
-                    <div class="item text-center" style="padding: 45px 45px 0px 45px;">
-                        <h4>{{$dt_home->section2_subtitle2}}</h4>
-                        <p>
-                            {{$dt_home->section2_content2}}
-                        </p>
-                        <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
-                        <br><br>
-                        <img src="{{ url('image/home/'.$dt_home->section2_image2)}}" alt="Thumb" style="max-width: 300px;">
-                    </div>
-                </div>
-                <!-- End Single Item -->
             </div>
         </div>
     </div>

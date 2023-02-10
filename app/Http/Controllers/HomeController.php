@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Home;
 use App\Models\Setting;
-
+use App\Models\Section2;
+use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
     public function index()
@@ -16,7 +17,11 @@ class HomeController extends Controller
     public function edit($section)
     {
         $dt_home = Home::where('id', 1)->first();
-        return view('admin.home',compact('dt_home', 'section'));
+        $section2s='';
+        if ($section==2) {
+            $section2s = Section2::all();
+        }
+        return view('admin.home',compact('dt_home', 'section', 'section2s'));
     }
 
     /**
@@ -79,6 +84,49 @@ class HomeController extends Controller
         return view('admin.setting',compact('dt_setting'));
     }
 
+    public function section2update(Request $request, $id)
+    {
+        try{
+            $data['subtitle'] = $request->subtitle;
+            $data['content'] = $request->content;
+            if ($request->hasfile('image')) {
+                    $data['image'] = $this->upload($request, 'image');
+            }
+    
+            Section2::where('id',$id)->update($data);
+            return Redirect::to(url('admin/home/2'))
+                            ->with('success','Data berhasil diubah');
+        }  catch (\Exception $ex) {
+            dd($ex);
+        }
+    }
+
+    public function section2store(Request $request)
+    {
+        try{
+            $data['subtitle'] = $request->subtitle;
+            $data['content'] = $request->content;
+            if ($request->hasfile('image')) {
+                $data['image'] = $this->upload($request, 'image');
+            }
+            // dd($data);
+    
+            Section2::create($data);
+            return Redirect::to(url('admin/home/2'))
+                            ->with('success','Data berhasil ditambah');
+        }  catch (\Exception $ex) {
+            dd($ex);
+        }
+    }
+
+    public function section2destroy($id)
+    {
+        Section2::where('id', $id)->delete();
+
+        return Redirect::to(url('admin/home/2'))
+                            ->with('success','Data berhasil dihapus');
+    }
+
     public function setting_action(Request $request, $id)
     {
         try {
@@ -91,6 +139,11 @@ class HomeController extends Controller
         }  catch (\Exception $ex) {
             dd($ex);
         }
+    }
+
+    public function detail()
+    {
+        return view('admin.detail');
     }
 
     public function upload($request, $fieldName){

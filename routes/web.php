@@ -19,9 +19,7 @@ use App\Http\Controllers\JenisPembangunanController;
 */
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('signup', [FrontController::class, 'signup'])->name('signup');
-Route::get('jadwal', [FrontController::class, 'jadwal'])->name('jadwal');
-Route::get('hasil', [FrontController::class, 'hasil'])->name('hasil');
-Route::get('detail/{slug}', [FrontController::class, 'detail'])->name('detail');
+Route::get('detail/{section}/{id}', [FrontController::class, 'detail'])->name('detail');
 
 Route::get('admin', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -36,6 +34,10 @@ Route::prefix('admin')->group(function () {
 
         Route::get('home/{section}', [HomeController::class, 'edit'])->name('home');
         Route::patch('home/update/{id}', [HomeController::class, 'update'])->name('home.update');
+        Route::post('home/2/store', [HomeController::class, 'section2store'])->name('section2.store');
+        Route::delete('home/2/destroy/{id}', [HomeController::class, 'section2destroy'])->name('section2.destroy');
+        Route::patch('home/2/update/{id}', [HomeController::class, 'section2update'])->name('section2.update');
+
         Route::get('setting', [HomeController::class, 'setting'])->name('home.setting');
         Route::patch('setting/update/{id}', [HomeController::class, 'setting_action'])->name('home.setting.update');
         Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');

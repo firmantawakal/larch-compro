@@ -138,6 +138,4 @@
     <!-- Plugin js import here -->
 @endpush
 
-@push('custom-scripts')
-    <!-- Custom js here -->
-@endpush
+

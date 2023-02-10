@@ -32,6 +32,8 @@
   <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/plugins/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
   <!-- end plugin css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+  <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
   @stack('plugin-styles')
     <style>
@@ -74,22 +76,22 @@
     <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
     <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js') }}"></script>
+
     <!-- end base js -->
 
     <!-- plugin js -->
     @stack('plugin-scripts')
     <!-- end plugin js -->
-
+    
     <!-- common js -->
     <script src="{{ asset('assets/js/template.js') }}"></script>
     <script src="{{ asset('assets/js/datepicker.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
     <script src="{{ asset('assets/js/data-table.js') }}"></script>
     <!-- end common js -->
-
+ 
     @stack('custom-scripts')
 </body>
 </html>
