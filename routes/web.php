@@ -37,6 +37,9 @@ Route::prefix('admin')->group(function () {
         Route::post('home/2/store', [HomeController::class, 'section2store'])->name('section2.store');
         Route::delete('home/2/destroy/{id}', [HomeController::class, 'section2destroy'])->name('section2.destroy');
         Route::patch('home/2/update/{id}', [HomeController::class, 'section2update'])->name('section2.update');
+        Route::post('home/7/store', [HomeController::class, 'section7store'])->name('section7.store');
+        Route::delete('home/7/destroy/{id}', [HomeController::class, 'section7destroy'])->name('section7.destroy');
+        Route::patch('home/7/update/{id}', [HomeController::class, 'section7update'])->name('section7.update');
 
         Route::get('setting', [HomeController::class, 'setting'])->name('home.setting');
         Route::patch('setting/update/{id}', [HomeController::class, 'setting_action'])->name('home.setting.update');

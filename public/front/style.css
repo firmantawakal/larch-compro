@@ -2510,8 +2510,8 @@ ul li .icon-list {
   margin: 0;
 }
 
-.case-study-area .case-items .owl-nav .owl-prev,
-.case-study-area .case-items .owl-nav .owl-next {
+.case-items .owl-nav .owl-prev,
+.case-items .owl-nav .owl-next {
   background: transparent none repeat scroll 0 0;
   color: #F54703;
   font-size: 30px;
@@ -2525,7 +2525,22 @@ ul li .icon-list {
   width: 40px;
 }
 
-.case-study-area .case-items .owl-nav .owl-next {
+
+.case-items .owl-nav .owl-next {
+  background: transparent none repeat scroll 0 0;
+  color: #F54703;
+  font-size: 30px;
+  height: 40px;
+  left: -50px;
+  line-height: 40px;
+  margin: -20px 0 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+}
+
+.case-items .owl-nav .owl-next {
   left: auto;
   right: -50px;
 }

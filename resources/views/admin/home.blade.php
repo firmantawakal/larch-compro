@@ -57,4 +57,7 @@
     @if($section==2)
         @include('admin.homeSection.section2_post')
     @endif
+    @if($section==7)
+        @include('admin.homeSection.section7_post')
+    @endif
 @endsection

@@ -231,73 +231,37 @@
                     </div>
                 </div>
             </div>
+
             <div class="row" style="padding-top: 30px;">
-                <!-- Start Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item">
-                        <h4>{{$dt_home->section7_subtitle1}}</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_a}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_b}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list1_c}}</p>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
+                <div class="case-items">
+                    <div class="col-md-12">
+                        <div class="case-carousel owl-carousel owl-theme">
+                        	@foreach ($section7 as $sec7)
+                            <!-- Start Single Item -->
+                            <div class="item">
+                                <h4>{{$sec7->subtitle}}</h4>
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-check-circle icon-list"></i>
+                                        <div class="text-list">{{$sec7->list_a}}</div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle icon-list"></i>
+                                        <div class="text-list">{{$sec7->list_b}}</div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle icon-list"></i>
+                                        <div class="text-list">{{$sec7->list_c}}</p>
+                                    </li>
+                                </ul>
+                                <a href="{{url('detail/7/'.$sec7->id)}}" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
+                            </div>
+                
+                            <!-- End Single Item -->
+                        @endforeach
+                        </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item">
-                        <h4>{{$dt_home->section7_subtitle2}}</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_a}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_b}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list2_c}}</p>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item">
-                        <h4>{{$dt_home->section7_subtitle3}}</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_a}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_b}}</div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle icon-list"></i>
-                                <div class="text-list">{{$dt_home->section7_list3_c}}</p>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
-                    </div>
-                </div>
-                <!-- End Single Item -->
             </div>
         </div>
     </div>

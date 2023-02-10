@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Home;
 use App\Models\Setting;
 use App\Models\Section2;
+use App\Models\Section7;
 use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
@@ -17,7 +18,7 @@ class HomeController extends Controller
     public function edit($section)
     {
         $dt_home = Home::where('id', 1)->first();
-        $section2s='';
+        $section2s=Section7::all();;
         if ($section==2) {
             $section2s = Section2::all();
         }
@@ -124,6 +125,46 @@ class HomeController extends Controller
         Section2::where('id', $id)->delete();
 
         return Redirect::to(url('admin/home/2'))
+                            ->with('success','Data berhasil dihapus');
+    }
+
+    public function section7update(Request $request, $id)
+    {
+        try{
+            $data['subtitle'] = $request->subtitle;
+            $data['list_a'] = $request->list_a;
+            $data['list_b'] = $request->list_b;
+            $data['list_c'] = $request->list_c;
+    
+            Section7::where('id',$id)->update($data);
+            return Redirect::to(url('admin/home/7'))
+                            ->with('success','Data berhasil diubah');
+        }  catch (\Exception $ex) {
+            dd($ex);
+        }
+    }
+
+    public function section7store(Request $request)
+    {
+        try{
+            $data['subtitle'] = $request->subtitle;
+            $data['list_a'] = $request->list_a;
+            $data['list_b'] = $request->list_b;
+            $data['list_c'] = $request->list_c;
+    
+            Section7::create($data);
+            return Redirect::to(url('admin/home/7'))
+                            ->with('success','Data berhasil ditambah');
+        }  catch (\Exception $ex) {
+            dd($ex);
+        }
+    }
+
+    public function section7destroy($id)
+    {
+        Section7::where('id', $id)->delete();
+
+        return Redirect::to(url('admin/home/7'))
                             ->with('success','Data berhasil dihapus');
     }
 
