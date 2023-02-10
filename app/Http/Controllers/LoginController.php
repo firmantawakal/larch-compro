@@ -28,7 +28,7 @@ class LoginController extends Controller
             $user = Auth::User();
             Session::put('user', $user);
 
-            return redirect('admin/home');
+            return redirect('admin/home/1');
         }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('admin');
