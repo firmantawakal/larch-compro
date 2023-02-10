@@ -71,19 +71,7 @@
                                 </div>
                                 <div class="info">
                                     <p>
-                                        {{-- {{$sec2->content}} --}}
-                                        @php 
-                                        $str = $sec2->content;
-                                        if (strlen($str) > 140)
-                                        {
-                                            $str = substr($str, 0, 140);
-                                            $str = explode(' ', $str);
-                                            array_pop($str); // remove last word from array
-                                            $str = implode(' ', $str);
-                                            $str = $str . ' ...';
-                                        }
-                                        echo $str;
-                                        @endphp
+                                        {{trimText($sec2->content)}}
                                     </p>
                                     <br>
                                     <a href="{{url('detail/2/'.$sec2->id)}}" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>

@@ -31,3 +31,15 @@ function getTime($date) {
     $time = date('H:i', strtotime($date));
     return $time;
 }
+
+function trimText($str) {
+  if (strlen($str) > 140)
+  {
+      $str = substr($str, 0, 140);
+      $str = explode(' ', $str);
+      array_pop($str); // remove last word from array
+      $str = implode(' ', $str);
+      $str = $str . ' ...';
+  }
+  return $str;
+}

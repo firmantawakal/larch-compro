@@ -1,3 +1,8 @@
+<style>
+    td {
+        white-space: normal !important;
+    }
+</style>
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -46,10 +51,10 @@
                         <table id="dataTableExample" class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">No.</th>
+                                    <th style="min-width: 20px" scope="col">No.</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Content</th>
-                                    <th style="min-width: 120px" scope="col">Aksi</th>
+                                    <th style="min-width: 190px" scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,7 +62,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $section2->subtitle }}</td>
-                                        <td>{{ $section2->content }}</td>
+                                        <td>{{trimText($section2->content)}}</td>
                                         <td>
                                             <div class="btn-toolbar" style="padding-left: 15px">
                                                 <button data-bs-toggle="modal"
