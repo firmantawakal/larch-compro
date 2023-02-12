@@ -16,33 +16,31 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Section 7 Post</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Post</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('section7.store') }}" method="POST"
+                                    <form action="{{ route('section.store', $section) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <label>Title:</label>
                                             <input type="text" name="subtitle" class="form-control"
-                                                placeholder="Judul Post">
+                                                placeholder="Title">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label>List A:</label>
-                                            <input type="text" name="list_a" class="form-control"
-                                                placeholder="List A">
+                                            <label>Title 2:</label>
+                                            <input type="text" name="subtitle2" class="form-control"
+                                                placeholder="Title 2">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label>List B:</label>
-                                            <input type="text" name="list_b" class="form-control"
-                                                placeholder="List B">
+                                            <label>Content:</label>
+                                            <textarea name="content"  rows="3"></textarea>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label>List C:</label>
-                                            <input type="text" name="list_c" class="form-control"
-                                                placeholder="List C">
+                                            <label>Image:</label>
+                                            <input type="file" name="image" class="form-control">
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -60,27 +58,28 @@
                                 <tr>
                                     <th style="min-width: 20px" scope="col">No.</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">List A</th>
-                                    <th scope="col">List B</th>
-                                    <th scope="col">List C</th>
+                                    <th scope="col">Title 2</th>
+                                    <th scope="col">Content</th>
                                     <th style="min-width: 190px" scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($section2s as $section7)
+                                @forelse ($sectionData as $section4)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $section7->subtitle }}</td>
-                                        <td>{{ $section7->list_a }}</td>
-                                        <td>{{ $section7->list_b }}</td>
-                                        <td>{{ $section7->list_c }}</td>
+                                        <td>{{ $section4->subtitle }}</td>
+                                        <td>{{ $section4->subtitle2 }}</td>
+                                        <td>{{trimText($section4->content)}}</td>
                                         <td>
                                             <div class="btn-toolbar" style="padding-left: 15px">
                                                 <button data-bs-toggle="modal"
-                                                    data-bs-target="#editModal{{ $section7->id }}"
+                                                    data-bs-target="#imageModal{{ $section4->id }}"
+                                                    class="btn btn-xs btn-info" style="margin-right:10px;height: 31px;">Image</button>
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#editModal{{ $section4->id }}"
                                                     class="btn btn-xs btn-primary" style="margin-right:10px;height: 31px;">Edit</button>
                                                 <form onsubmit="return confirm('Yakin ingin menghapus data?');"
-                                                    action="{{ route('section7.destroy', $section7->id) }}"
+                                                    action="{{ route('section.destroy', [$section,$section4->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -90,40 +89,38 @@
                                         </td>
                                     </tr>
                                     <!-- Modal edit-->
-                                    <div class="modal fade" id="editModal{{ $section7->id }}" tabindex="-1"
+                                    <div class="modal fade" id="editModal{{ $section4->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Section 2 Post</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="{{ route('section7.update', $section7->id) }}"
+                                                        action="{{ route('section.update', [$section, $section4->id]) }}"
                                                         method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('patch')
                                                         <div class="form-group mb-3">
                                                             <label>Title:</label>
                                                             <input type="text" name="subtitle" class="form-control"
-                                                                placeholder="Judul Post" value={{$section7->subtitle}}>
+                                                                placeholder="Title" value={{$section4->subtitle}}>
                                                         </div>
                                                         <div class="form-group mb-3">
-                                                            <label>List A:</label>
-                                                            <input type="text" name="list_a" class="form-control"
-                                                                placeholder="List A" value={{$section7->list_a}}>
+                                                            <label>Title 2:</label>
+                                                            <input type="text" name="subtitle2" class="form-control"
+                                                                placeholder="Title 2" value={{$section4->subtitle2}}>
                                                         </div>
                                                         <div class="form-group mb-3">
-                                                            <label>List B:</label>
-                                                            <input type="text" name="list_b" class="form-control"
-                                                                placeholder="List B" value={{$section7->list_b}}>
+                                                            <label>Content:</label>
+                                                            <textarea name="content" rows="3">{{$section4->content}}</textarea>
                                                         </div>
                                                         <div class="form-group mb-3">
-                                                            <label>List C:</label>
-                                                            <input type="text" name="list_c" class="form-control"
-                                                                placeholder="List C" value={{$section7->list_c}}>
+                                                            <label>Image:</label>
+                                                            <input type="file" name="image" class="form-control">
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -137,7 +134,7 @@
                                     </div>
 
                                     <!-- Modal image-->
-                                    <div class="modal fade" id="imageModal{{ $section7->id }}" tabindex="-1"
+                                    <div class="modal fade" id="imageModal{{ $section4->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
@@ -146,7 +143,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img class="img-fluid" src="{{ url('image/home/'.$section7->image)}}">
+                                                    <img class="img-fluid" src="{{ url('image/home/'.$section4->image)}}">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

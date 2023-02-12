@@ -23,7 +23,9 @@
                     <div class="blog-content col-md-12">
                         <div class="item">
                             <div class="content-box">
-                                <img src="{{ url('image/home/'.$sectionData->image)}}" alt="Thumb" style="max-width: 100%;padding-bottom:20px">
+                                <div class="text-center">
+                                    <img src="{{ url('image/home/'.$sectionData->image)}}" alt="Thumb" style="max-width: 70%;padding-bottom:20px">
+                                </div>
                                 <p>{{$sectionData->content}}</p>
                             </div>
                         </div>

@@ -6,7 +6,7 @@
     }
 </style>
 @section('content')
-    <div class="row">
+    <div class="row" @php echo ($section==4) ? 'style="display: none"' : '' @endphp>
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -36,12 +36,6 @@
                             @include('admin.homeSection.section2')
                         @elseif ($section==3)
                             @include('admin.homeSection.section3')
-                        @elseif ($section==4)
-                            @include('admin.homeSection.section4')
-                        @elseif ($section==5)
-                            @include('admin.homeSection.section5')
-                        @elseif ($section==6)
-                            @include('admin.homeSection.section6')
                         @elseif ($section==7)
                             @include('admin.homeSection.section7')
                         @elseif ($section==8)
@@ -54,10 +48,9 @@
             </div>
         </div>
     </div>
-    @if($section==2)
-        @include('admin.homeSection.section2_post')
-    @endif
-    @if($section==7)
-        @include('admin.homeSection.section7_post')
+    @if(in_array($section, [1,2,7]))
+        @include('admin.homeSection.section_post')
+    @elseif($section==4)
+        @include('admin.homeSection.section4_post')
     @endif
 @endsection

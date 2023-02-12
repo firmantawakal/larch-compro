@@ -63,7 +63,13 @@
                                                 <td>{{ $visitor->jenisPembangunan->nama_jenis }}</td>
                                                 <td>{{ $visitor->alamat_lokasi . ', ' . ucwords(strtolower($visitor->kota_lokasi)) }}</td>
                                                 <td>{{ $visitor->luas_tanah1 . 'm X ' . $visitor->luas_tanah2.' m' }}</td>
-                                                <td><a href="{{ url('image/visitor/'.$visitor->file)}}" target="_blank" rel="noopener noreferrer">Buka File</a></td>
+                                                <td>
+                                                    @if (isset($visitor->images))
+                                                        @foreach ($visitor->images as $visImg)
+                                                            <a href="{{ url('image/visitor/'.$visImg->image)}}" target="_blank" rel="noopener noreferrer">File {{$loop->iteration}}</a><br>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="d-inline-flex">
                                                         <form onsubmit="return confirm('Yakin ingin mengarsip data?');"
@@ -110,7 +116,13 @@
                                                 <td>{{ $visitor_arc->jenisPembangunan->nama_jenis }}</td>
                                                 <td>{{ $visitor_arc->alamat_lokasi . ', ' . ucwords(strtolower($visitor_arc->kota_lokasi)) }}</td>
                                                 <td>{{ $visitor_arc->luas_tanah1 . 'm X ' . $visitor_arc->luas_tanah2.' m' }}</td>
-                                                <td><a href="{{ url('image/visitor/'.$visitor_arc->file)}}" target="_blank" rel="noopener noreferrer">Buka File</a> </td>
+                                                <td>
+                                                    @if (isset($visitor_arc->images))
+                                                        @foreach ($visitor_arc->images as $visImg2)
+                                                            <a href="{{ url('image/visitor/'.$visImg2->image)}}" target="_blank" rel="noopener noreferrer">File {{$loop->iteration}}</a><br>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="d-inline-flex">
                                                         <a href="{{ route('visitor.unarchive', $visitor_arc->id) }}" class="btn btn-xs btn-warning">Aktifkan</a>

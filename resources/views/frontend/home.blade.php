@@ -4,7 +4,7 @@
 
     <!-- Start Banner
     ============================================= -->
-    <div class="banner-area content-double bg-theme-small normal-text default-padding-top">
+    <div class="banner-area content-double bg-theme-small normal-text">
         <div class="side-bg ">
             <img class="" src="{{ url('image/home/'.$dt_home->section1_image)}}" alt="Thumb" style="min-width: 70%;">
         </div>
@@ -21,7 +21,22 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-md-6 col-sm-9 text-medium conetnt-lead">
+                            <div class="content" data-animation="animated fadeInUpBig">
+                                <div class="content-carousel owl-carousel owl-theme">
+                                    @foreach ($section1 as $sec1)
+                                        <div class="item">
+                                            <h2>{{$sec1->subtitle}}</h2>
+                                            <p>
+                                                {{$sec1->content}}
+                                            </p>
+                                            <a href="{{url('detail/1/'.$sec1->id)}}" style="color: #F54703">Learn more <i class="fas fa-angle-right"></i></a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="col-sm-5">
                             <div class="blogs">
                                 <h2 class="border-top">{{$dt_home->section1_subtitle1}}</h2>
                                 <p>
@@ -36,7 +51,7 @@
                                 </p>
                                 <a href="#" style="color: #F54703;">Learn more <i class="fas fa-angle-right"></i></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -64,13 +79,13 @@
                             <!-- Start Single Item -->
                             <div class="item">
                                 <div class="thumb">
-                                    <img src="{{ url('image/home/'.$sec2->image)}}" alt="Thumb">
+                                    <img class="img-post" src="{{ url('image/home/'.$sec2->image)}}" alt="Thumb">
                                     <div class="top-info">
                                         <h4><a href="{{url('detail/2/'.$sec2->id)}}">{{$sec2->subtitle}}</a></h4>
                                     </div>
                                 </div>
                                 <div class="info">
-                                    <p>
+                                    <p style="min-height: 130px">
                                         {{trimText($sec2->content)}}
                                     </p>
                                     <br>
@@ -89,7 +104,7 @@
     </div>
     <!-- End Our Features -->
 
-    <!-- Start Our About
+    <!-- SECTION 3
     ============================================= -->
     <div class="about-area default-padding-bottom bg-theme-small">
         <div class="container">
@@ -107,121 +122,64 @@
         </div>
     </div>
     <!-- End Our About -->
-
-    <!-- Start Our Features
-    ============================================= -->
-    <div class="our-feautes-area bg-light less-border default-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Start Single Item -->
-                <div class="col-md-6 default-padding-bottom">
-                    <h4>{{$dt_home->section4_title1}}</h4>
-                    <h3>{{$dt_home->section4_title2}}</h3 >
-                    <ul>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list1}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list2}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section4_list3}}</div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-5 col-md-offset-1 single-item">
-                    <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
-                        <img src="{{ url('image/home/'.$dt_home->section4_image)}}" alt="Thumb">
+    @foreach ($section4 as $sec4)
+        @if($loop->iteration%2!=0)
+            <!-- SECTION 4 RIGHT IMAGE
+            ============================================= -->
+            <div class="our-feautes-area bg-light less-border default-padding">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start Single Item -->
+                        <div class="col-md-7 default-padding-bottom">
+                            <h4>{{$sec4->subtitle}}</h4>
+                            <h3>{{$sec4->subtitle2}}</h3 >
+                            <p>
+                                {{$sec4->content}}
+                            </p>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Start Single Item -->
+                        <div class="col-md-4 col-md-offset-1 single-item">
+                            <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
+                                <img src="{{ url('image/home/'.$sec4->image)}}" alt="Thumb">
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
                     </div>
                 </div>
-                <!-- End Single Item -->
             </div>
-        </div>
-    </div>
-    <!-- End Our Features -->
-
-    <!-- Start Our Features
-    ============================================= -->
-    <div class="our-feautes-area bg-light less-border default-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Start Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item" style="background-color:#fdf4ef;padding: 45px 0px 0px 45px;">
-                        <img src="{{ url('image/home/'.$dt_home->section5_image)}}" alt="Thumb">
+        @else
+            <!-- SECTION 4 LEFT IMAGE
+            ============================================= -->
+            <div class="our-feautes-area bg-light less-border default-padding">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start Single Item -->
+                        <div class="col-md-4 single-item">
+                            <div class="item" style="background-color:#fdf4ef;padding: 45px 0px 0px 45px;">
+                                <img src="{{ url('image/home/'.$sec4->image)}}" alt="Thumb">
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                        <!-- Start Single Item -->
+                        <div class="col-md-7 col-md-offset-1">
+                            <h4>{{$sec4->subtitle}}​</h4>
+                            <h3>{{$sec4->subtitle2}}</h3 >
+                            <p>
+                                {{$sec4->content}}
+                            </p>
+                        </div>
+                        <!-- End Single Item -->
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-7 col-md-offset-1">
-                    <h4>{{$dt_home->section5_title1}}​</h4>
-                    <h3>{{$dt_home->section5_title2}}</h3 >
-                    <ul>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list1}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list2}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section5_list3}}</div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Single Item -->
             </div>
-        </div>
-    </div>
-    <!-- End Our Features -->
+        @endif
+    @endforeach
+
 
     <!-- Start Our Features
     ============================================= -->
-    <div class="our-feautes-area bg-light less-border default-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Start Single Item -->
-                <div class="col-md-7 default-padding-bottom">
-                    <h4>{{$dt_home->section6_title1}}</h4>
-                    <h3>{{$dt_home->section6_title2}}</h3 >
-                    <ul>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list1}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list2}}</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle icon-list"></i>
-                            <div class="text-list">{{$dt_home->section6_list3}}</div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Single Item -->
-                <!-- Start Single Item -->
-                <div class="col-md-4 col-md-offset-1 single-item">
-                    <div class="item" style="background-color:#fdf4ef; padding: 45px 0px 0px 45px;">
-                        <img src="{{ url('image/home/'.$dt_home->section6_image)}}" alt="Thumb">
-                    </div>
-                </div>
-                <!-- End Single Item -->
-            </div>
-        </div>
-    </div>
-    <!-- End Our Features -->
-
-    <!-- Start Our Features
-    ============================================= -->
-    <div class="our-feautes-area bg-theme-small less-border default-padding">
+    <div class="case-study-area bg-theme-small less-border default-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -239,24 +197,20 @@
                         	@foreach ($section7 as $sec7)
                             <!-- Start Single Item -->
                             <div class="item">
-                                <h4>{{$sec7->subtitle}}</h4>
-                                <ul>
-                                    <li>
-                                        <i class="fas fa-check-circle icon-list"></i>
-                                        <div class="text-list">{{$sec7->list_a}}</div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle icon-list"></i>
-                                        <div class="text-list">{{$sec7->list_b}}</div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle icon-list"></i>
-                                        <div class="text-list">{{$sec7->list_c}}</p>
-                                    </li>
-                                </ul>
-                                <a href="{{url('detail/7/'.$sec7->id)}}" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
+                                <div class="thumb">
+                                    <img class="img-post" src="{{ url('image/home/'.$sec7->image)}}" alt="Thumb">
+                                    <div class="top-info">
+                                        <h4><a href="{{url('detail/2/'.$sec7->id)}}">{{$sec7->subtitle}}</a></h4>
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <p style="min-height: 130px">
+                                        {{trimText($sec7->content)}}
+                                    </p>
+                                    <br>
+                                    <a href="{{url('detail/2/'.$sec7->id)}}" class="btn btn-theme border btn-sm">Pelajari lebih lanjut</a>
+                                </div>
                             </div>
-                
                             <!-- End Single Item -->
                         @endforeach
                         </div>

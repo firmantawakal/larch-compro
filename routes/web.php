@@ -7,6 +7,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\JenisPembangunanController;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,9 @@ use App\Http\Controllers\JenisPembangunanController;
 */
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('signup', [FrontController::class, 'signup'])->name('signup');
+Route::get('team', [FrontController::class, 'team'])->name('team');
 Route::get('detail/{section}/{id}', [FrontController::class, 'detail'])->name('detail');
+Route::get('/kirim_email', [EmailController::class, 'index']);
 
 Route::get('admin', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -34,12 +37,10 @@ Route::prefix('admin')->group(function () {
 
         Route::get('home/{section}', [HomeController::class, 'edit'])->name('home');
         Route::patch('home/update/{id}', [HomeController::class, 'update'])->name('home.update');
-        Route::post('home/2/store', [HomeController::class, 'section2store'])->name('section2.store');
-        Route::delete('home/2/destroy/{id}', [HomeController::class, 'section2destroy'])->name('section2.destroy');
-        Route::patch('home/2/update/{id}', [HomeController::class, 'section2update'])->name('section2.update');
-        Route::post('home/7/store', [HomeController::class, 'section7store'])->name('section7.store');
-        Route::delete('home/7/destroy/{id}', [HomeController::class, 'section7destroy'])->name('section7.destroy');
-        Route::patch('home/7/update/{id}', [HomeController::class, 'section7update'])->name('section7.update');
+
+        Route::post('home/store/{section}', [HomeController::class, 'sectionstore'])->name('section.store');
+        Route::delete('home/destroy/{section}/{id}', [HomeController::class, 'sectiondestroy'])->name('section.destroy');
+        Route::patch('home/update/{section}/{id}', [HomeController::class, 'sectionupdate'])->name('section.update');
 
         Route::get('setting', [HomeController::class, 'setting'])->name('home.setting');
         Route::patch('setting/update/{id}', [HomeController::class, 'setting_action'])->name('home.setting.update');

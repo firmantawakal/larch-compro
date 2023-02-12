@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Section2;
+
+
 function active_class($path, $active = 'active') {
   return call_user_func_array('Request::is', (array)$path) ? $active : '';
 }
@@ -42,4 +45,10 @@ function trimText($str) {
       $str = $str . ' ...';
   }
   return $str;
+}
+
+function getProduct()
+{
+    $data = Section2::all();
+    return $data;
 }

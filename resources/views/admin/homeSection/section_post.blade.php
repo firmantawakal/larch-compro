@@ -16,12 +16,12 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Section 2 Post</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Section 1 Post</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('section2.store') }}" method="POST"
+                                    <form action="{{ route('section.store', $section) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mb-3">
@@ -58,21 +58,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($section2s as $section2)
+                                @forelse ($sectionData as $sec)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $section2->subtitle }}</td>
-                                        <td>{{trimText($section2->content)}}</td>
+                                        <td>{{ $sec->subtitle }}</td>
+                                        <td>{{trimText($sec->content)}}</td>
                                         <td>
                                             <div class="btn-toolbar" style="padding-left: 15px">
                                                 <button data-bs-toggle="modal"
-                                                    data-bs-target="#imageModal{{ $section2->id }}"
+                                                    data-bs-target="#imageModal{{ $sec->id }}"
                                                     class="btn btn-xs btn-info" style="margin-right:10px;height: 31px;">Image</button>
                                                 <button data-bs-toggle="modal"
-                                                    data-bs-target="#editModal{{ $section2->id }}"
+                                                    data-bs-target="#editModal{{ $sec->id }}"
                                                     class="btn btn-xs btn-primary" style="margin-right:10px;height: 31px;">Edit</button>
                                                 <form onsubmit="return confirm('Yakin ingin menghapus data?');"
-                                                    action="{{ route('section2.destroy', $section2->id) }}"
+                                                    action="{{ route('section.destroy', [$section,$sec->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -82,29 +82,29 @@
                                         </td>
                                     </tr>
                                     <!-- Modal edit-->
-                                    <div class="modal fade" id="editModal{{ $section2->id }}" tabindex="-1"
+                                    <div class="modal fade" id="editModal{{ $sec->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Section 2 Post</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Section 1 Post</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="{{ route('section2.update', $section2->id) }}"
+                                                        action="{{ route('section.update', [$section, $sec->id]) }}"
                                                         method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('patch')
                                                         <div class="form-group mb-3">
                                                             <label>Title:</label>
                                                             <input type="text" name="subtitle" class="form-control"
-                                                                placeholder="Judul Post" value={{$section2->subtitle}}>
+                                                                placeholder="Judul Post" value={{$sec->subtitle}}>
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <label>Content:</label>
-                                                            <textarea name="content" rows="3">{{$section2->content}}</textarea>
+                                                            <textarea name="content" rows="3">{{$sec->content}}</textarea>
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <label>Image:</label>
@@ -122,7 +122,7 @@
                                     </div>
 
                                     <!-- Modal image-->
-                                    <div class="modal fade" id="imageModal{{ $section2->id }}" tabindex="-1"
+                                    <div class="modal fade" id="imageModal{{ $sec->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
@@ -131,7 +131,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img class="img-fluid" src="{{ url('image/home/'.$section2->image)}}">
+                                                    <img class="img-fluid" src="{{ url('image/home/'.$sec->image)}}">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

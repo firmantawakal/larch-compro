@@ -28,15 +28,16 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" >Product</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Product 1</a></li>
-                                        <li><a href="#">Product 2</a></li>
+                                        @foreach (getProduct() as $product)
+                                            <li><a href="{{url('detail/2/'.$product->id)}}">{{$product->subtitle}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">Why Larch?</a>
                                 </li>
                                 <li>
-                                    <a href="#">Team</a>
+                                    <a href="{{url('team')}}">Team</a>
                                 </li>
                             </ul>
                         </div><!-- /.navbar-collapse -->

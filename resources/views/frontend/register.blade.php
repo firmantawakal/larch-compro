@@ -149,8 +149,10 @@
                                     data-height="100" 
                                     data-show-remove="false" 
                                     data-max-file-size="2M" 
+                                    multiple
                                     />
-                                </div>
+                                    <small>Format file yang didukung : .pdf, .jpg, .jpeg, .png</small>
+                                    </div>
                                 </div>
                             </div>
 
@@ -294,11 +296,16 @@
         }
     }
 
-    $("#input-file").change(function() {
+    let totalImage = 0;
+    $("#input-file").change(function(e) {
         var inp = document.getElementById('input-file');
-        for (var i = 0; i < inp.files.length; ++i) {
+        totalImage = inp.files.length
+        for (var i = 0; i < totalImage; ++i) {
             var name = inp.files.item(i).name;
-            console.log("file name: " + name);
+            var validation = fileValidation(inp.files.item(i))
+            if (validation=='invalid') {
+                // e.target.value = null;
+            }
         }
     });
 
@@ -311,10 +318,27 @@
             input.attr("type", "password");
         }
     });
+
+    function fileValidation(fileInput) {
+        var allowedExtensions = /(\.pdf|\.jpg|\.jpeg|\.png|\.gif)$/i;
+            
+        if (!allowedExtensions.exec(fileInput.name)) {
+            swal({
+                    title: "error",
+                    text: "File tidak didukung. File yang didukung adalah dokumen / gambar",
+                    icon: "error"
+                })
+            return 'invalid';
+        }
+        else
+        {
+            return 'valid'
+        }
+    }
     
     function submitData(){
         let formData = new FormData();
-        formData.append('input_file', $('#input-file')[0].files[0]);
+        // formData.append('input_file', $('#input-file')[0].files[0]);
         formData.append('_token', "{{ csrf_token() }}");
         formData.append('nama', $("#nama").val());
         formData.append('email', $("#email").val());
@@ -329,6 +353,11 @@
         formData.append('luas_tanah1', $("#luas_tanah1").val());
         formData.append('luas_tanah2', $("#luas_tanah2").val());
         
+        for (let i = 0; i < totalImage; i++) {
+            // formData.append('input_file' + i, $('#input-file')[0].files[i]);
+            formData.append('input_file[]', $('#input-file')[0].files[i]);
+        }
+
         $.ajax({
             url: '{{ route("visitor.store") }}',
             type: "POST",

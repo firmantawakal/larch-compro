@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Section7 extends Model
+class Section extends Model
 {
     use HasFactory;
 
-    protected $table = 'section7';
+    protected $table = 'section';
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -25,8 +25,8 @@ class Section7 extends Model
      */
     protected $fillable = [
         'subtitle',
-        'list_a',
-        'list_b',
-        'list_c',
+        'content',
+        'image',
+        'section',
     ];
 }

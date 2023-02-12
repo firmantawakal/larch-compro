@@ -27,4 +27,9 @@ class Visitor extends Model
     {
         return $this->hasOne(JenisPembangunan::class, 'id', 'jenis_pembangunan');
     }
+
+    public function images()
+    {
+        return $this->hasMany(VisitorImage::class, 'visitor_id', 'id');
+    }
 }

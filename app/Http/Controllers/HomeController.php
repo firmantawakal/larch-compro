@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Home;
 use App\Models\Setting;
-use App\Models\Section2;
-use App\Models\Section7;
+use App\Models\Section;
+use App\Models\Section4;
 use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
@@ -18,11 +18,14 @@ class HomeController extends Controller
     public function edit($section)
     {
         $dt_home = Home::where('id', 1)->first();
-        $section2s=Section7::all();;
-        if ($section==2) {
-            $section2s = Section2::all();
+        $sectionData = Section::where('section', $section)->get();
+        if ($section==4) {
+            $sectionData = Section4::all();
         }
-        return view('admin.home',compact('dt_home', 'section', 'section2s'));
+        // if ($section==2) {
+        //     $section2s = Section2::all();
+        // }
+        return view('admin.home',compact('dt_home', 'section', 'sectionData'));
     }
 
     /**
@@ -85,7 +88,7 @@ class HomeController extends Controller
         return view('admin.setting',compact('dt_setting'));
     }
 
-    public function section2update(Request $request, $id)
+    public function sectionupdate(Request $request, $section, $id)
     {
         try{
             $data['subtitle'] = $request->subtitle;
@@ -93,78 +96,54 @@ class HomeController extends Controller
             if ($request->hasfile('image')) {
                     $data['image'] = $this->upload($request, 'image');
             }
+
+            if ($section==4) {
+                $data['subtitle2'] = $request->subtitle2;
+                Section4::where('id',$id)->update($data);
+            }else{
+                Section::where('id',$id)->update($data);
+            }
     
-            Section2::where('id',$id)->update($data);
-            return Redirect::to(url('admin/home/2'))
+            return Redirect::to(url('admin/home/'.$section))
                             ->with('success','Data berhasil diubah');
         }  catch (\Exception $ex) {
             dd($ex);
         }
     }
 
-    public function section2store(Request $request)
+    public function sectionstore(Request $request, $section)
     {
         try{
             $data['subtitle'] = $request->subtitle;
             $data['content'] = $request->content;
+            $data['section'] = $section;
             if ($request->hasfile('image')) {
                 $data['image'] = $this->upload($request, 'image');
             }
-            // dd($data);
+
+            if ($section==4) {
+                $data['subtitle2'] = $request->subtitle2;
+                Section4::create($data);
+            }else{
+                Section::create($data);
+            }
     
-            Section2::create($data);
-            return Redirect::to(url('admin/home/2'))
+            return Redirect::to(url('admin/home/'.$section))
                             ->with('success','Data berhasil ditambah');
         }  catch (\Exception $ex) {
             dd($ex);
         }
     }
 
-    public function section2destroy($id)
+    public function sectiondestroy($section, $id)
     {
-        Section2::where('id', $id)->delete();
-
-        return Redirect::to(url('admin/home/2'))
-                            ->with('success','Data berhasil dihapus');
-    }
-
-    public function section7update(Request $request, $id)
-    {
-        try{
-            $data['subtitle'] = $request->subtitle;
-            $data['list_a'] = $request->list_a;
-            $data['list_b'] = $request->list_b;
-            $data['list_c'] = $request->list_c;
-    
-            Section7::where('id',$id)->update($data);
-            return Redirect::to(url('admin/home/7'))
-                            ->with('success','Data berhasil diubah');
-        }  catch (\Exception $ex) {
-            dd($ex);
+        if ($section==4) {
+            Section4::where('id', $id)->delete();
+        }else{
+            Section::where('id', $id)->delete();
         }
-    }
 
-    public function section7store(Request $request)
-    {
-        try{
-            $data['subtitle'] = $request->subtitle;
-            $data['list_a'] = $request->list_a;
-            $data['list_b'] = $request->list_b;
-            $data['list_c'] = $request->list_c;
-    
-            Section7::create($data);
-            return Redirect::to(url('admin/home/7'))
-                            ->with('success','Data berhasil ditambah');
-        }  catch (\Exception $ex) {
-            dd($ex);
-        }
-    }
-
-    public function section7destroy($id)
-    {
-        Section7::where('id', $id)->delete();
-
-        return Redirect::to(url('admin/home/7'))
+        return Redirect::to(url('admin/home/'.$section))
                             ->with('success','Data berhasil dihapus');
     }
 

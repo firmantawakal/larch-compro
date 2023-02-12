@@ -33,16 +33,10 @@
               <a href="{{ url('admin/home/4') }}" class="nav-link {{ active_class(['admin/home/4']) }}">Section 4</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('admin/home/5') }}" class="nav-link {{ active_class(['admin/home/5']) }}">Section 5</a>
+              <a href="{{ url('admin/home/7') }}" class="nav-link {{ active_class(['admin/home/7']) }}">Section 5</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('admin/home/6') }}" class="nav-link {{ active_class(['admin/home/6']) }}">Section 6</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('admin/home/7') }}" class="nav-link {{ active_class(['admin/home/7']) }}">Section 7</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('admin/home/8') }}" class="nav-link {{ active_class(['admin/home/8']) }}">Section 8</a>
+              <a href="{{ url('admin/home/8') }}" class="nav-link {{ active_class(['admin/home/8']) }}">Section 6</a>
             </li>
           </ul>
         </div>
@@ -54,7 +48,7 @@
       <li class="nav-item {{ active_class(['admin/visitor']) }}">
         <a href="{{ url('admin/visitor') }}" class="nav-link">
           <i class="link-icon" data-feather="users"></i>
-          <span class="link-title">Visitor</span>
+          <span class="link-title">Customer</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['admin/jenis_pembangunan']) }}">
