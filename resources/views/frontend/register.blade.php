@@ -325,7 +325,7 @@
         if (!allowedExtensions.exec(fileInput.name)) {
             swal({
                     title: "error",
-                    text: "File tidak didukung. File yang didukung adalah dokumen / gambar",
+                    text: "Terdapat file yang tidak didukung.",
                     icon: "error"
                 })
             return 'invalid';

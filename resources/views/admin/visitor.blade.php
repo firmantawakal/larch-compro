@@ -46,11 +46,13 @@
                                         <tr>
                                             <th scope="col">No.</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col">Alamat</th>
                                             <th scope="col">Jenis Pembangunan</th>
                                             <th scope="col">Alamat Lokasi</th>
                                             <th scope="col">Luas Tanah</th>
                                             <th scope="col">File</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -59,6 +61,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $visitor->nama }}</td>
+                                                <td>{{ $visitor->email }}</td>
                                                 <td>{{ $visitor->alamat . ', ' . ucwords(strtolower($visitor->kota)) }}</td>
                                                 <td>{{ $visitor->jenisPembangunan->nama_jenis }}</td>
                                                 <td>{{ $visitor->alamat_lokasi . ', ' . ucwords(strtolower($visitor->kota_lokasi)) }}</td>
@@ -69,6 +72,17 @@
                                                             <a href="{{ url('image/visitor/'.$visImg->image)}}" target="_blank" rel="noopener noreferrer">File {{$loop->iteration}}</a><br>
                                                         @endforeach
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    @php
+                                                        if($visitor->status_register==0){
+                                                            echo '<a href="#statusModal'.$visitor->id.'" data-bs-toggle="modal" data-bs-target="#statusModal'.$visitor->id.'" class="badge bg-secondary">Pending</a>';
+                                                        }elseif($visitor->status_register==1){
+                                                            echo '<a href="#statusModal'.$visitor->id.'" data-bs-toggle="modal" data-bs-target="#statusModal'.$visitor->id.'" class="badge bg-success">Diterima</a>';
+                                                        }elseif($visitor->status_register==2){
+                                                            echo '<a href="#statusModal'.$visitor->id.'" data-bs-toggle="modal" data-bs-target="#statusModal'.$visitor->id.'" class="badge bg-danger">Ditolak</a>';
+                                                        }
+                                                    @endphp
                                                 </td>
                                                 <td>
                                                     <div class="d-inline-flex">
@@ -82,8 +96,37 @@
                                                 </td>
                                             </tr>
                                             <!-- Modal edit-->
-                                            <div class="modal fade" id="editModal{{ $visitor->id }}" tabindex="-1"
+                                            <div class="modal fade" id="statusModal{{ $visitor->id }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Ubah Status</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form
+                                                                action="{{ route('visitor.update', $visitor->id) }}"
+                                                                method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('patch')
+                                                                <div class="form-group mb-3">
+                                                                    <label>Status:</label>
+                                                                    <select class="form-control" name="status" id="">
+                                                                        <option value="1">Diterima</option>
+                                                                        <option value="2">Ditolak</option>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Tutup</button>
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @empty
                                         @endforelse
@@ -126,7 +169,6 @@
                                                 <td>
                                                     <div class="d-inline-flex">
                                                         <a href="{{ route('visitor.unarchive', $visitor_arc->id) }}" class="btn btn-xs btn-warning">Aktifkan</a>
-
                                                     </div>
                                                 </td>
                                             </tr>

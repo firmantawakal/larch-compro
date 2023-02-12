@@ -22,7 +22,6 @@ Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('signup', [FrontController::class, 'signup'])->name('signup');
 Route::get('team', [FrontController::class, 'team'])->name('team');
 Route::get('detail/{section}/{id}', [FrontController::class, 'detail'])->name('detail');
-Route::get('/kirim_email', [EmailController::class, 'index']);
 
 Route::get('admin', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -30,6 +29,7 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 Route::prefix('admin')->group(function () {
     Route:: resource('user', '\App\Http\Controllers\UserController')->middleware('role:admin');
     Route::post('visitor/add', [VisitorController::class, 'store'])->name('visitor.store');
+    Route::patch('visitor/update/{id}', [VisitorController::class, 'update'])->name('visitor.update');
 
     Route::middleware(['auth'])->group(function () {
         Route:: resource('user', '\App\Http\Controllers\UserController')->middleware('role:admin');

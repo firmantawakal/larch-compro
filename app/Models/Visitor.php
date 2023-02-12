@@ -21,6 +21,9 @@ class Visitor extends Model
         'luas_tanah1',
         'luas_tanah2',
         'file',
+        'status_register',
+        'email',
+        'password',
     ];
 
     public function jenisPembangunan()

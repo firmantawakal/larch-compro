@@ -25,6 +25,7 @@ class VisitorController extends Controller
                             ->with('jenisPembangunan')
                             ->with('images')
                             ->latest()->get();
+
         return view('admin.visitor', compact('visitors','visitors_archive'));
     }
 
@@ -67,9 +68,47 @@ class VisitorController extends Controller
         }
 
         if ($query) {
+            $details = [
+                'subject' => 'Registrasi web Larch',
+                'title'   => '<h2>Registrasi Berhasil!</h2>',
+                'content' => '<p>Selamat, datang di website Larch. Akun anda akan aktif setelah admin menerima registrasi. Terimakasih</p>'
+            ];
+
+            $this->sendEmail($request->email, $details);
             return response()->json('success', 202);
         } else {
             return response()->json('error', 404);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $data['status_register'] = $request->status;
+    
+            $query = Visitor::where('id', $id)->update($data);
+            if ($query) {
+                $getVis = Visitor::where('id', $id)->first();
+                if ($getVis->status_register==1) {
+                    $details = [
+                        'subject' => 'Larch Website',
+                        'title'   => '<h2>Akun diterima</h2>',
+                        'content' => '<p>Selamat, akun anda telah aktif. Silahkan login menggunakan data saat anda melakukan registrasi</p>'
+                    ];
+                }else{
+                    $details = [
+                        'subject' => 'Larch Website',
+                        'title'   => '<h2>Akun ditolak</h2>',
+                        'content' => '<p>Akun anda ditolak. Silahkan hubungi admin untuk informasi lebih lengkap</p>'
+                    ];
+                }
+                $this->sendEmail($getVis->email, $details);
+            }
+            
+            return redirect()->route('visitor')
+                            ->with('success','Status berhasil diubah');
+        }  catch (\Exception $ex) {
+            dd($ex);
         }
     }
 
@@ -104,14 +143,14 @@ class VisitorController extends Controller
         return $name;
     }
 
-    public function kirim()
+    public function sendEmail($email, $details)
     {
-        $email = 'firman.tawakal@gmail.com';
-        $data = [
-            'title' => 'Selamat datang!',
-            'url' => '',
-        ];
-        Mail::to($email)->send(new SendMail($data));
-        return 'Berhasil mengirim email!';
+        try {
+            Mail::to($email)->send(new SendMail($details));
+            return 'success';
+        } catch (\Exception $ex) {
+            dd($ex);
+        }
+        
     }
 }
