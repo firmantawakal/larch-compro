@@ -19,7 +19,7 @@ class FrontController extends Controller
     {
         $dt_home = Home::where('id', 1)->first();
         $section2 = Section::where('section', 2)->get();
-        $section1 = Section::where('section', 2)->get();
+        $section1 = Section::where('section', 1)->get();
         $section7 = Section::where('section', 7)->get();
         $section4 = Section4::all();
         $dt_setting = Setting::where('id', 1)->first();

@@ -138,27 +138,28 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-group">
-                                  <label for="telp" class='control-label'>Upload File</label>
-                                  <input 
-                                    name="file" 
-                                    id="input-file" 
-                                    required 
-                                    type="file" 
-                                    class="dropify" 
-                                    data-height="100" 
-                                    data-show-remove="false" 
-                                    data-max-file-size="2M" 
-                                    multiple
-                                    />
-                                    <small>Format file yang didukung : .pdf, .jpg, .jpeg, .png</small>
+                                    <div class="form-group">
+                                        <label for="telp" class='control-label'>Upload File</label>
+                                        <input 
+                                            name="file" 
+                                            id="input-file" 
+                                            required 
+                                            type="file" 
+                                            class="dropify" 
+                                            data-height="100" 
+                                            data-show-remove="false" 
+                                            data-max-file-size="2M" 
+                                            multiple
+                                            />
+                                            <small>Format file yang didukung : .pdf, .jpg, .jpeg, .png</small>
+                                            <strong><div id="selectedFile"></div></strong>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="row">
-                                    <button class="btn btn-theme" onclick="submitData()">
+                                    <button id="btn-signup" class="btn btn-theme" onclick="checkData()">
                                         Sign Up</i>
                                     </button>
                                 </div>
@@ -300,12 +301,10 @@
     $("#input-file").change(function(e) {
         var inp = document.getElementById('input-file');
         totalImage = inp.files.length
+        console.log(totalImage)
         for (var i = 0; i < totalImage; ++i) {
             var name = inp.files.item(i).name;
-            var validation = fileValidation(inp.files.item(i))
-            if (validation=='invalid') {
-                // e.target.value = null;
-            }
+            $("#selectedFile").text(totalImage + ' File Dipilih')
         }
     });
 
@@ -335,8 +334,25 @@
             return 'valid'
         }
     }
+
+    function checkData(){
+        let valid = true;
+        $('[required]').each(function() {
+            if ($(this).is(':invalid') || !$(this).val()) valid = false;
+        })
+        if (!valid) {
+            swal({
+                title: "Gagal",
+                text: "Mohon lengkapi data anda",
+                icon: "error"
+            })
+        }else{
+            submitData()
+        }
+    }
     
     function submitData(){
+        $("#btn-signup").attr("disabled", true);
         let formData = new FormData();
         // formData.append('input_file', $('#input-file')[0].files[0]);
         formData.append('_token', "{{ csrf_token() }}");
@@ -368,6 +384,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
+                $("#btn-signup").attr("disabled", false);
                 console.log(response)
                 swal({
                     title: "Berhasil",
@@ -378,6 +395,12 @@
                 });
             },
             error: function(jqXHR, textStatus, errorThrown) {
+                $("#btn-signup").attr("disabled", false);
+                swal({
+                    title: "Gagal",
+                    text: "Pendaftaran gagal",
+                    icon: "error"
+                })
                 console.log(textStatus, errorThrown);
             }
         });

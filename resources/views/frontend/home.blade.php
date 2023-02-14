@@ -6,7 +6,7 @@
     ============================================= -->
     <div class="banner-area content-double bg-theme-small normal-text">
         <div class="side-bg ">
-            <img class="" src="{{ url('image/home/'.$dt_home->section1_image)}}" alt="Thumb" style="min-width: 70%;">
+            <img class="img-section1" src="{{ url('image/home/'.$dt_home->section1_image)}}" alt="Thumb">
         </div>
         <div class="box-table">
             <div class="box-cell">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-9 text-medium conetnt-lead">
+                        <div class="col-md-6 col-sm-7 text-medium content-lead">
                             <div class="content" data-animation="animated fadeInUpBig">
                                 <div class="content-carousel owl-carousel owl-theme">
                                     @foreach ($section1 as $sec1)
@@ -106,7 +106,7 @@
 
     <!-- SECTION 3
     ============================================= -->
-    <div class="about-area default-padding-bottom bg-theme-small">
+    {{-- <div class="about-area default-padding-bottom bg-theme-small">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 thumb">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Our About -->
     @foreach ($section4 as $sec4)
         @if($loop->iteration%2!=0)

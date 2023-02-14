@@ -26,17 +26,17 @@
             <li class="nav-item">
               <a href="{{ url('admin/home/2') }}" class="nav-link {{ active_class(['admin/home/2']) }}">Section 2</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="{{ url('admin/home/3') }}" class="nav-link {{ active_class(['admin/home/3']) }}">Section 3</a>
+            </li> --}}
+            <li class="nav-item">
+              <a href="{{ url('admin/home/4') }}" class="nav-link {{ active_class(['admin/home/4']) }}">Section 3</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('admin/home/4') }}" class="nav-link {{ active_class(['admin/home/4']) }}">Section 4</a>
+              <a href="{{ url('admin/home/7') }}" class="nav-link {{ active_class(['admin/home/7']) }}">Section 4</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('admin/home/7') }}" class="nav-link {{ active_class(['admin/home/7']) }}">Section 5</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('admin/home/8') }}" class="nav-link {{ active_class(['admin/home/8']) }}">Section 6</a>
+              <a href="{{ url('admin/home/8') }}" class="nav-link {{ active_class(['admin/home/8']) }}">Section 5</a>
             </li>
           </ul>
         </div>

@@ -7,7 +7,7 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h6 class="card-title">Post Data</h6>
+                <h6 class="card-title">Section 3 Data</h6>
                 <button data-bs-toggle="modal" data-bs-target="#createModal"
                         class="btn btn-xs btn-success mb-3">Tambah</button>
                     <!-- Modal create-->
